@@ -1,0 +1,51 @@
+<div class="bg-brand-light">
+    <div class="wrap">
+        <div class="row">
+            <div class="col-12">
+                <div class="padding-header text-center--medium">
+                    <span class="fa fa-ship head-icon {{animation.headIcon}}"></span>
+                    <h2 class="beta uppercase white {{animation.headText}}">{{ 'app.create.head.main' | translate }}</h2>
+                    <p class="white {{animation.headText}}">{{ 'app.create.head.sub' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include src="webappUrl + '/customer/breadcrumbs.template.html'" class="overflow-hidden block"></div>
+<div class="wrap">
+    <div class="push--top push-2--bottom background--white rounded shadow--light border">
+        <div class="soft soft-2--medium clearfix">
+            <div class="row">
+                <div class="col-12 col-3--medium col-3--large">
+                    <legend class="beta uppercase ng-binding">{{ 'app.create.title.main' | translate }}</legend>
+                </div>
+            </div>
+            <div class="row push--top">
+                <ss-select model="formType" name="blank.formType" options="createTypes" primary="name" main="12" sub="3" large="3" required="true" hint="app.global.select"></ss-select>
+            </div>
+            <div ng-show="formType">
+                <div class="push--top push-2--top--medium">
+                    <div class="info-message">
+                        <h3 class="beta"><i class="fa fa-info-circle"></i> {{'app.global.beforeBegin' | translate}}:</h3>
+                        <ul class="list-disc" ng-show="formType.url==='customer/create/fish1'">
+                            <li>{{ 'app.create.section.retailer.list1' | translate }}</li>
+                            <li>{{ 'app.create.section.retailer.list2' | translate }}</li>
+                            <li>{{ 'app.create.section.retailer.list3' | translate }}</li>
+                        </ul>
+                        <ul class="list-disc" ng-show="formType.url==='customer/create/retailer'">
+                            <li>{{ 'app.create.section.fishone.list1' | translate }}</li>
+                            <li>{{ 'app.create.section.fishone.list2' | translate }}</li>
+                            <li>{{ 'app.create.section.fishone.list3' | translate }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step-bar">
+            <div class="soft soft-2--medium clearfix">
+                <button class="button pull-right disabled push-0--top" ng-show="!formType">{{ 'app.create.button.begin' | translate }}</button>
+                <button class="pull-right push-0--top" ng-click="goToPage(formType.url); currentStep = 1;" ng-show="formType">{{ 'app.create.button.begin' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

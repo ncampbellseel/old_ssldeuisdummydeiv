@@ -1,0 +1,83 @@
+<div class="bg-brand-light">
+    <div class="wrap">
+        <div class="row">
+            <div class="col-12">
+                <div class="padding-header text-center--medium">
+                    <span class="fa fa-user head-icon {{animation.headIcon}}"></span>
+                    <h2 class="beta uppercase white {{animation.headText}}">{{ 'app.customerResults.head.main' | translate }}</h2>
+                    <p class="white {{animation.headText}}">{{ 'app.customerResults.head.sub' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include src="webappUrl + '/customer/breadcrumbs.template.html'" class="overflow-hidden block"></div>
+<div class="wrap">
+    <div ng-if="resultsAll && media.phone">
+        <div ng-include src="webappUrl + '/customer/search/results/card.template.html'" ng-repeat="result in results | orderBy: resultsType | limitTo: count"></div>
+        <button class="col-12 alt" ng-click="loadMore();" ng-if="resultsAll > count">{{ 'app.customerResults.button.loadMore' | translate }}</button>
+        <button class="secondary" ng-click="goToPage('customer/search/edit');">{{ 'app.customerResults.button.searchAgain' | translate }}</button>
+        <div class="pull-right push--top text-right">
+            <p>{{ 'app.customerResults.section.total.title' | translate }}: {{resultsAll}}</p>
+        </div>
+    </div>
+    <div class="push-2--bottom push--top soft soft-2--medium border background--white rounded shadow--light">
+        <table class="search-table sortable" ng-if="resultsAll && !media.phone">
+            <thead>
+                <tr>
+                    <td ng-click="orderResults($event, 'manIndicator')" width="20">
+                        <span class="fa fa-caret-down"></span>
+                    </td>
+                    <td ng-click="orderResults($event, 'customerID')">
+                        <span class="fa fa-caret-down"></span> {{ 'app.global.customerID' | translate }}
+                    </td>
+                    <td class="order-default" ng-click="orderResults($event, 'customerForename')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.customerForename' | translate }}
+                    </td>
+                    <td ng-click="orderResults($event, 'customerSurname')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.customerSurname' | translate }}
+                    </td>
+                    <td ng-click="orderResults($event, 'cutsomerTelephone')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.customerTelephone' | translate }}
+                    </td>
+                    <td ng-click="orderResults($event, 'customerArea')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.customerArea' | translate }}
+                    </td>
+                    <td ng-click="orderResults($event, 'orderPlaced')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.orderPlaced' | translate }}
+                    </td>
+                    <td ng-click="orderResults($event, 'orderSent')">
+                        <span class="fa fa-caret-down"></span>{{ 'app.global.orderSent' | translate }}
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table__link" ng-repeat="result in results | orderBy: resultsType | limitTo: count" ng-click="viewCustomer(result.customerID)">
+                    <td>
+                        <span ng-if="inArray(transMethods, result.method)" tooltips tooltip-html="{{ result.method }}</i>" tooltip-size="small" tooltip-speed="fast" class="fa fa-{{getIconType(result.method)}}"></span>
+                    </td>
+                    <td>{{result.customerID}}</td>
+                    <td>{{result.customerForename}}</td>
+                    <td>{{result.customerSurname | toCaps}}</td>
+                    <td>{{result.customerTelephone}}</td>
+                    <td>{{result.customerArea}}</td>
+                    <td>{{result.orderPlaced | date:'dd/MM/yyyy'}}</td>
+                    <td>{{result.orderSent | date:'dd/MM/yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="!resultsAll">
+            <div class="info-message flush--top">
+                <h3 class="beta"><i class="fa fa-info-circle"></i> {{ 'app.global.fyi' | translate }}:</h3>
+                <ul class="list-disc">
+                    <li>{{ 'app.customerResults.section.empty.desc' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+        <button class="push--top col-12 alt" ng-click="loadMore();" ng-if="resultsAll > count">{{ 'app.global.button.loadMore' | translate }}</button>
+        <button class="push-2--top secondary" ng-click="goToPage('customer/search/edit');">{{ 'app.global.button.searchAgain' | translate }}</button>
+        <div class="row pull-right push--right align-right">
+            <p class="push-2--top">{{ 'app.customerResults.section.total.title' | translate }}: {{resultsAll}}</p>
+        </div>
+    </div>
+</div>

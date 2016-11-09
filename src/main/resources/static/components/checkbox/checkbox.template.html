@@ -1,0 +1,4 @@
+<a class="radio-holder rad--{{uniq}} col-{{col}}--medium col-{{large}}--large {{type}} {{activeClass}}" tabindex="0" ng-click="toggleIt()" ng-keydown="toggleIt(true, $event)">
+    <input id="type{{index}}" type="{{type}}" ng-model="model" ng-value="model" tabindex="-1">
+    <label><span><span class="fa fa-check"></span></span>{{ text | translate }}</label>
+</a>

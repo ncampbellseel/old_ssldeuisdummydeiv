@@ -1,0 +1,19 @@
+[{
+    "taskName": "User x started following you",
+    "taskStatus": "Completed",
+    "taskId": 1,
+    "taskDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "taskCreatedOn": 1446670266
+}, {
+    "taskName": "User y started following you",
+    "taskStatus": "Available",
+    "taskId": 2,
+    "taskDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "taskCreatedOn": 1446670266
+}, {
+    "taskName": "User z started following you",
+    "taskStatus": "Available",
+    "taskId": 3,
+    "taskDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "taskCreatedOn": 1446670266
+}]

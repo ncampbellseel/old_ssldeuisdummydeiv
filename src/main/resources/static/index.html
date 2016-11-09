@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="whitelabelApp" role="application">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ 'app.name' | translate }} | {{ pageTitle | translate }} {{ pageSubTitle | translate }}</title>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon.ico" />
+    <!-- inject:css -->
+    <link rel="stylesheet" href="vendor.css">
+    <link rel="stylesheet" href="index.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="vendor.js"></script>
+    <script src="app.min.js"></script>
+    <script src="templates.min.js"></script>
+    <!-- endinject -->
+    <base href="/">
+</head>
+
+<body ng-controller="AppController" class="background marine-app" ng-class="{'toggle-content' : navOptionsVert.open || media.phone, 'minify' : navOptionsVert.mini, 'hide-menu' : isExternal(), 'show-keys' : showKeys}">
+    <ss-messages messages="messages"></ss-messages>
+    <header>
+        <div class="col-12">
+            <span class="notif-small" ng-if="availableWorkTasks.length" ng-class="{'animated tada infinite': availableWorkTasks.length}" ng-hide="isExternal() || media.desktop"></span>
+            <span class="menu-mobile-toggle fa fa-bars" ng-click="toggleMenu()" ng-hide="isExternal() || media.desktop"></span>
+            <h1><a ng-click="goToPage('dashboard');" class="logo">{{ 'app.name' | translate }}</a></h1>
+            <ss-notifications ng-if="!isExternal() && media.phone && cat === true"></ss-notifications>
+            <ss-menu options="navOptionsAccount" media="media" ng-if="media.desktop && !isExternal()"></ss-menu>
+            <ss-toggle-keys show-keys="showKeys" ng-hide="media.phone || media.tablet" ng-if="!isExternal() && checkThisLater"></ss-toggle-keys>
+        </div>
+    </header>
+    <ss-menu options="navOptionsVert" media="media" tasks="availableWorkTasks" ng-if="!isExternal()"></ss-menu>
+    <ss-back-to-top scroll-speed="600" button-text="{{ 'app.global.top' | translate }}"></ss-back-to-top>
+    <div class="main" role="main">
+        <div class="page-holder" ng-view></div>
+    </div>
+</body>
+
+</html>

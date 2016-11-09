@@ -1,0 +1,80 @@
+<div class="push--bottom clearfix" ng-class="{ 'field-errors': errors.length > 0 }">
+    <div class="border background--white rounded shadow--light">
+        <div class="soft soft-2--medium">
+            <h3>{{ 'app.retailer.section.step4.title1' | translate }}</h3>
+            <div class="row push-2--top">
+                <div class="col-6--medium col-12">
+                    <h4 class="uppercase beta">{{ 'app.retailer.section.step4.title2' | translate }} <i class="fa fa-pencil edit-info pull-right" ng-click="showStep(1)"></i></h4>
+                    <table class="push--top search-table">
+                        <tbody>
+                            <tr width="40%">
+                                <th>{{ 'app.global.retailerName' | translate }}</th>
+                                <td>{{entry.retailerName}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'app.global.retailerAddress' | translate }}</th>
+                                <td>
+                                    <pre class="non-code">{{entry.retailerAddress}}</pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-6--medium col-12">
+                    <h4 class="uppercase beta">{{ 'app.retailer.section.step4.title3' | translate }} <i class="fa fa-pencil edit-info pull-right" ng-click="showStep(2)"></i></h4>
+                    <table class="push--top search-table">
+                        <tbody>
+                            <tr>
+                                <th width="40%">{{ 'app.global.activityDate' | translate }}</th>
+                                <td>{{entry.activityDate | date:'dd/MM/yyyy'}} - {{entry.activityTime}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ 'app.global.renewalDate' | translate }}</th>
+                                <td>{{entry.renewalDate | date:'dd/MM/yyyy'}} - {{entry.renewalTime}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row push-2--ends">
+                <div class="col-12">
+                    <h4 class="uppercase beta">{{ 'app.retailer.section.step4.title4' | translate }} <i class="fa fa-pencil edit-info pull-right" ng-click="showStep(3)"></i></h4>
+                    <table class="push--top search-table">
+                        <thead>
+                            <tr>
+                                <th>{{ 'app.global.activityDate' | translate }}</th>
+                                <th>{{ 'app.global.numberOfEmployees' | translate }}</th>
+                                <th>{{ 'app.global.contractLength' | translate }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="date in entry.dates">
+                                <td>{{date.date | date:'dd/MM/yyyy - hh:mm'}}</td>
+                                <td>
+                                    <ss-tag name="{{gearNice(date.gearUsed)}}" active="false"></ss-tag>
+                                </td>
+                                <td>{{date.numberOfEmployees}}</td>
+                                <td>{{date.contractLength}} (mins)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ss-error-messages></ss-error-messages>
+        </div>
+        <div class="step-bar">
+            <div class="soft soft-2--medium clearfix">
+                <button class="pull-right push-0--top" ng-click="submitForm()" id="submitForm">{{ 'app.global.button.submit' | translate }}</button>
+                <button class="secondary pull-left push-0--top" ng-click="showStep(3)">{{ 'app.global.button.back' | translate }}</button>
+                <button class="pull-left alt push-2--left push-0--top" ng-click="discardSave('app.global.confirm','app.retailer.discard', discard());">{{ 'app.global.button.cancel' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix push--top push-2--bottom">
+    <div class="row">
+        <div class="col-12">
+            <pre>{{paperToSubmit | json}}</pre>
+        </div>
+    </div>
+</div>

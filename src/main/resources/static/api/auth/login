@@ -1,0 +1,10 @@
+{
+    "user": {
+        "username": "user1",
+        "email": "bryce@soprasteria.com",
+        "password": "user1",
+        "avatar": "http://www.google.com/logo.png",
+        "authToken": "token 1234",
+        "remember_me": true
+    }
+}

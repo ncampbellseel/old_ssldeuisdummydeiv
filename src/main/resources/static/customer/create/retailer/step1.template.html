@@ -1,0 +1,49 @@
+<div class="push--bottom clearfix" ng-class="{ 'field-errors': errors.length > 0 }">
+    <div class="border background--white rounded shadow--light">
+        <div class="soft soft-2--medium push--bottom">
+            <h4>{{ 'app.retailer.section.step1.title1' | translate }}</h4>
+            <div class="row">
+                <div class="col-12 col-8--medium">
+                    <div class="row">
+                        <div class="col-12 col-6--medium">
+                            <label>{{ 'app.retailer.section.step1.primaryCustomer' | translate }}</label>
+                            <input type="text" id="customerNumberPrimary" maxlength="20" ng-model="entry.customerNumberPrimary" ng-class="{ 'required': !entry.customerNumberPrimary }" />
+                        </div>
+                        <div class="col-12 col-6--medium">
+                            <label>{{ 'app.retailer.section.step1.addtionalCustomer' | translate }}</label>
+                            <input type="text" id="customerNumberAlt" maxlength="20" ng-model="entry.customerNumberAlt" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border--bottom"></div>
+        <div class="soft soft-2--medium push--bottom">
+            <h4>{{ 'app.retailer.section.step1.title2' | translate }}</h4>
+            <div class="row">
+                <div class="col-12 col-8--medium">
+                    <div class="row">
+                        <div class="col-12 col-6--medium">
+                            <label for="retailerName">{{ 'app.global.retailerName' | translate }}</label>
+                            <input placeholder="For example, 'Joe Bloggs'" type="text" id="retailerName" ng-model="entry.retailerName" ng-class="{'required' : !entry.retailerName}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-8--medium">
+                    <div class="row">
+                        <div class="col-12 col-6--medium">
+                            <label for="retailerAddress">{{ 'app.global.retailerAddress' | translate }}</label>
+                            <textarea id="retailerAddress" ng-model="entry.retailerAddress" ng-class="{'required' : !entry.retailerAddress}"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ss-error-messages></ss-error-messages>
+        </div>
+        <div class="step-bar">
+            <div class="soft soft-2--medium clearfix">
+                <button angular-ripple class="pull-right push-0--top" ng-click="step1Done()" ng-class="{'disabled' : !validCustomer}">{{ 'app.global.button.next' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

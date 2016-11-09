@@ -1,0 +1,7 @@
+<div class="col-{{boxClass}} col-{{boxSubClass}}--medium col-{{boxLargeClass}}--large pad-override">
+    <label ng-if="label">{{ label | translate }}</label>
+    <div class="pad-override rel" ng-class="{'required--child' : !name && isRequired === true}" ms-focus="isFocused">
+        <span class="loading-icon fa" ng-class="{'fa-spin fa-spinner' : loading, 'fa-search' : !loading}" ng-if="isSearch"></span>
+        <selectize role="listbox" placeholder="hint" options="modelOptions" config="configOptions" ng-model="name"></selectize>
+    </div>
+</div>

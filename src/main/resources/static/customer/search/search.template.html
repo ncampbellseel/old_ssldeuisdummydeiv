@@ -1,0 +1,67 @@
+<div class="bg-brand-light" ng-show="state === 'search'">
+    <div class="wrap">
+        <div class="row">
+            <div class="col-12">
+                <div class="padding-header text-center--medium">
+                    <span class="fa fa-user head-icon {{animation.headIcon}}"></span>
+                    <h2 class="beta uppercase white {{animation.headText}}">{{ 'app.findCustomer.head.main' | translate }}</h2>
+                    <p class="white {{animation.headText}}">{{ 'app.findCustomer.head.sub' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include src="webappUrl + '/customer/breadcrumbs.template.html'" class="overflow-hidden block"></div>
+<ss-loader ng-show="state == 'searching'"></ss-loader>
+<div class="wrap" ng-show="state == 'search'">
+    <form class="push--top push-2--bottom soft soft-2--medium border background--white rounded shadow--light" ng-submit="search()">
+        <div class="row">
+            <!-- Vessel details -->
+            <div class="col-6--medium col-12 push--bottom">
+                <fieldset>
+                    <legend class="beta uppercase">{{ 'app.findCustomer.section.retailerDetails.title' | translate }}</legend>
+                    <div class="row">
+                        <div class="col-12 col-6--small">
+                            <label class="form-label" for="customerNumber">{{ 'app.global.customerNumber' | translate }}</label>
+                            <input type="text" id="customerNumber" ng-model="query.customerNumber" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-6--medium">
+                            <label class="form-label" for="retailerName">{{ 'app.global.retailerName' | translate }}</label>
+                            <input type="text" id="retailerName" ng-model="query.retailerName" />
+                        </div>
+                        <div class="col-12 col-6--medium">
+                            <label class="form-label" for="retailerAddress">{{ 'app.global.retailerAddress' | translate }}</label>
+                            <input type="text" id="retailerAddress" ng-model="query.retailerAddress" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- Customer details -->
+            <div class="col-6--medium col-12">
+                <fieldset>
+                    <legend class="beta uppercase">{{ 'app.findCustomer.section.dateDetails.title' | translate }}</legend>
+                    <div class="row">
+                        <ss-select model="query.msgType" name="msgType" primary="value" selected="query.msgType" options="optionsDateRangeType" main="12" sub="6" label="app.global.dateRangeType" hint="app.global.all"></ss-select>
+                    </div>
+                    <div class="row">
+                        <ss-date-picker model="query.dateFrom" max="today" min="null" main="12" sub="6" check="checkRequiredDate('from')" label="app.global.dateFrom"></ss-date-picker>
+                        <ss-date-picker model="query.dateTo" max="today" min="null" main="12" sub="6" check="checkRequiredDate('to')" label="app.global.dateTo"></ss-date-picker>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="border--top push--top push-2--top--medium push--bottom push-2--bottom--medium"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <ss-error-messages></ss-error-messages>
+                <input angular-ripple type="submit" class="button-inline inline" value="{{ 'app.global.button.search' | translate }}" />
+                <span ng-click="clearForm()" class="button secondary inline push--left soft-half inline-block">{{ 'app.global.button.clear' | translate }}</span>
+            </div>
+        </div>
+    </form>
+</div>
