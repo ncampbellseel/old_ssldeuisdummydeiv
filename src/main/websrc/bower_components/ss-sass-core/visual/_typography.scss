@@ -1,0 +1,465 @@
+$primary-font: $NTA-Light;
+
+$secondary-font: $Helvetica-Regular;
+
+$bl:1.5em;
+
+h1, h2, h3, h4, h5, h6{
+	
+    color: $brand-color;
+	font-size: 1.25em;
+	font-family: $primary-font;
+    font-weight: bold;
+    
+    small{
+     
+        color: $grey-1;
+        font-size: 0.625em;
+        
+    }
+	
+}
+
+body, p, li, a, dt, dl, table, .tableLikePair, legend, label, input, textarea, span{
+ 
+    font-family: $secondary-font;
+    font-size: 1em;
+    line-height: $bl;
+    
+}
+
+aside, .aside{
+    
+    font-family: $secondary-font;
+    font-size: 0.75em;
+    
+}
+
+small, .small{
+    
+    font-family: $secondary-font;
+    font-size: 0.75em;
+    
+}
+
+.heading{
+ 
+    clear: both;
+    display:block;
+    margin:$gutter 0 0 0;
+    
+}
+
+.peta{
+ 
+    @include core-80;
+    font-weight: bold;
+    
+}
+
+.tera{
+ 
+    @include core-48;
+    font-weight: bold;
+    
+}
+
+
+.giga{
+ 
+    @include core-36;
+    font-weight: bold;
+    
+}
+
+.mega{
+ 
+    @include core-27;
+    font-weight: bold;
+    
+}
+
+.kilo{
+ 
+    @include core-24;
+    font-weight: bold;
+    
+}
+
+.alpha{
+ 
+    @include core-19;
+    font-weight: bold;
+    
+}
+
+.beta{
+ 
+    @include core-16;
+    font-weight: bold;
+    
+}
+
+.zeta{
+ 
+    @include core-14;
+    font-weight: bold;
+    
+}
+
+.subheading{
+ 
+    color: $grey-1;
+    
+}
+
+pre{
+    &.non-code {
+        font-family:$primary-font;   
+    }
+}
+
+blockquote{
+    
+    border-top:3px solid $brand-color;
+   // border-bottom:1px solid $brand-color;
+    @extend .bg-brand--tint;
+    color:$brand-color;
+    display: block;
+	font-family: $primary-font;
+	font-size:1.65em;
+    line-height: 1.325em;
+    margin:($gutter/2) 0;
+    padding:($gutter/2);
+    padding-left:($gutter*3);
+    position: relative;
+    
+    &:before{
+
+        @extend .brand--lighten;
+        content:"\f10d";
+        font-family: FontAwesome;
+        font-size: 60px;
+        left:($gutter/2);
+        position: absolute;
+        top:($gutter);
+        
+    }
+
+    aside{
+        
+        color:$grey-1;
+        font-family: $primary-font;
+        font-size: 0.5em;
+        font-style:italic;
+        
+    }
+	
+}
+
+hr{
+ 
+    @extend .border--bottom;
+    @extend .border-brand;
+    @extend .border-3;
+    height:0;
+    margin:0;
+    
+}
+
+//Alignment
+
+.text-left{
+ 
+    text-align:left;
+    
+}
+
+.text-left--medium{
+    
+    @include bp-small{
+ 
+        text-align:left;
+        
+    }
+    
+}
+
+.text-left--large{
+    
+    @include bp-medium{
+ 
+        text-align:left;
+        
+    }
+    
+}
+
+.text-left--xlarge{
+    
+    @include bp-large{
+ 
+        text-align:left;
+        
+    }
+    
+}
+
+.text-center{
+ 
+    text-align:center;
+    
+}
+
+.text-center--medium{
+    
+    @include bp-small{
+ 
+        text-align:center;
+        
+    }
+    
+}
+
+.text-center--large{
+    
+    @include bp-medium{
+ 
+        text-align:center;
+        
+    }
+    
+}
+
+.text-center--xlarge{
+    
+    @include bp-large{
+ 
+        text-align:center;
+        
+    }
+    
+}
+
+.text-right{
+ 
+    text-align:right;
+    
+}
+
+.text-right--medium{
+    
+    @include bp-small{
+ 
+        text-align:right;
+        
+    }
+    
+}
+
+.text-right--large{
+    
+    @include bp-medium{
+ 
+        text-align:right;
+        
+    }
+    
+}
+
+.text-right--xlarge{
+    
+    @include bp-large{
+ 
+        text-align:right;
+        
+    }
+    
+}
+
+.text-justified{
+ 
+    text-align:justify;
+    
+}
+
+.text-justified--medium{
+    
+    @include bp-small{
+ 
+        text-align:justify;
+        
+    }
+    
+}
+
+.text-justified--large{
+    
+    @include bp-medium{
+ 
+        text-align:justify;
+        
+    }
+    
+}
+
+.text-justified--xlarge{
+    
+    @include bp-large{
+ 
+        text-align:justify;
+        
+    }
+    
+}
+
+// Style
+
+.italic{
+ 
+    font-style: italic;
+    
+}
+
+.bold{
+ 
+    font-weight: bold;
+    
+}
+
+.uppercase{
+ 
+    text-transform: uppercase;
+    
+}
+
+// Decoration
+
+.underline{
+    
+    text-decoration: underline;
+    
+}
+
+.strikethrough{
+    
+    text-decoration:line-through;
+    
+}
+
+.highlight{
+ 
+    @extend .bg-brand;
+    @extend .white;
+    
+}
+
+.editor{
+    
+    h1, h2, h3, h4, h5, h6, p, li{
+     
+        max-width: 45em;
+        
+    }
+    
+    h1, h2, h3, h4, h5, h6{
+     
+        font-weight: bold;
+        margin:$gutter 0 0 0;
+        
+    }
+    
+    h1{
+ 
+        @extend .peta;
+        font-size: 2.5em;
+
+    }
+
+    h2{
+
+        @extend .tera;
+        font-size: 2.25em;
+
+    }
+
+    h3{
+        
+        @extend .giga;
+        font-size: 1.875em;
+
+    }
+
+    h4{
+
+        @extend .mega;
+        font-size: 1.5em;
+
+    }
+
+    h5{
+
+        @extend .kilo;
+        font-size: 1.125em;
+
+    }
+    
+    h6{
+        
+        @extend .alpha;
+        font-size: 1em;
+
+    }
+    
+    p{
+        margin:($gutter/2) 0 0 0;
+
+    }
+    
+    ul{
+     
+        list-style: disc;
+        list-style-position: inside;
+        margin:$gutter 0 0 $gutter;
+        
+    }
+    
+    ol{
+     
+        list-style: decimal;
+        list-style-position: inside;
+        margin:$gutter 0 0 $gutter;
+        
+    }
+    
+    li{
+
+        margin:($gutter/2) 0 0 0;
+        
+    }
+    
+    a{
+     
+        @extend .link;
+        
+    }
+    
+    hr{
+ 
+        margin:$gutter-width 0 0 0;
+
+    }
+    
+}
+
+.highlight {
+    &-positive {
+        color:$green;
+    }
+    &-negative {
+        color:$red;
+    }
+    &-cautious {
+        color:$orange;
+    }
+}

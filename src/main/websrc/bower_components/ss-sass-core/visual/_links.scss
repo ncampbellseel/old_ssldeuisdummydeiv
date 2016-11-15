@@ -1,0 +1,57 @@
+.link{
+ 
+    @extend .link-color;
+    text-decoration: underline;
+    
+    &:hover{
+     
+        @extend .link-hover;
+        
+    }
+    
+    &:active{
+        
+        @extend .bg-focus;
+        @extend .link-hover;
+        outline: 3px solid $focus;
+        
+    }
+    
+}
+
+.editor{
+
+    a, a:link, a:visited{
+
+        @extend .brand;
+        text-decoration: underline;
+
+        &:hover{
+
+            @extend .brand--lighten;
+
+        }
+
+        &:active{
+
+            @extend .brand--darken;
+
+        }
+
+    }
+
+}
+
+header h1 a {
+    color:inherit;
+}
+
+.clickable {
+    cursor:pointer;
+}
+
+.deleteButton {
+    color:$grey-1;
+    font-size:2em;
+    @extend .clickable;
+}

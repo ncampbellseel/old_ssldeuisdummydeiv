@@ -1,0 +1,19 @@
+<h4 class="beta uppercase">Messages</h2>
+
+<div class="row" ng-controller="MessagesCtrl">
+    <div class="col-5--medium">
+        <div class="editor">
+            <p ng-click="pushSuccess();">Click here to launch a <strong>success message</strong></p>
+            <p ng-click="pushError();">Click here to launch an <strong>error message</strong></p>
+            <p ng-click="pushWarning();">Click here to launch a <strong>warning message</strong></p>
+            <p ng-click="pushInfo();">Click here to launch an <strong>info message</strong></p>
+            <p ng-click="pushButton();">Click here to launch an <strong>button message</strong></p>
+            <div ng-include="'components/messages/example.template.html'"></div>
+        </div>
+    </div>
+    <div class="col-7--medium">
+        <div class="example push--ends">
+			<pre><code class="language-markup" ss-prism type="true" ng-include="'components/messages/example.template.html'"></code></pre>
+		</div>
+	</div>
+</div>

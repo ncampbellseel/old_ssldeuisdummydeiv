@@ -1,0 +1,21 @@
+.progress{
+    @extend .soft--top;
+    @extend .push-2--bottom;
+    @include bp-medium{
+        border-bottom:3px solid $grey-3;
+    }
+    li{
+        border-left:3px solid $grey-3;
+        @extend .soft-half--ends;
+        @extend .soft--sides;
+        @include bp-medium{
+            border:none;
+            border-bottom:3px solid $grey-3;
+            margin-bottom:-3px !important;
+        }
+        &.current{
+            border-color: $brand-color;
+            @extend .bold;
+        }
+    }
+}

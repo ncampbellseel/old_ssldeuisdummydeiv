@@ -1,0 +1,13 @@
+{
+    "name": "ss-sass-core",
+    "main": [
+        "init.scss"
+    ],
+    "version": "0.0.1",
+    "private": true,
+    "author": "Bryce Wilson <bryce.wilson@soprasteria.com>",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "govuk_frontend_toolkit": "https://github.com/alphagov/govuk_frontend_toolkit.git"
+    }
+}

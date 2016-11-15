@@ -1,0 +1,77 @@
+@import "../../../assets/sass/brand/_global";
+.radio-holder {
+    margin: 0 0 0.75em 0;
+    input[type="radio"],
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="radio"] + label,
+    input[type="checkbox"] + label {
+        color: $color-gray;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 9px;
+    }
+    input[type="radio"] + label span,
+    input[type="checkbox"] + label span {
+        display: inline-block;
+        width: 19px;
+        height: 19px;
+        margin: -1px 10px 0 0;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #fff;
+        @include box-shadow(0, 0, 0, #848181, true, 1px);
+        &:focus {
+            @include box-shadow(0, 0, 1px, #ffbf47, false, 1px);
+        }
+        span.fa {
+            opacity: 0.3;
+            font-size: 12px;
+            text-align: center;
+            line-height: 21px;
+            color: #aaa;
+            vertical-align: top;
+        }
+    }
+    &.active {
+        input[type="radio"] + label span,
+        input[type="checkbox"] + label span {
+            background-color: $color-primary;
+            @include box-shadow(0, 0, 0, $color-primary, true, 1px);
+            color: #fff;
+            span.fa {
+                opacity: 1;
+                color: #fff;
+            }
+        }
+        input[type="radio"] + label span,
+        input[type="checkbox"] + label span {
+            -webkit-transition: background-color 0.4s linear;
+            -o-transition: background-color 0.4s linear;
+            -moz-transition: background-color 0.4s linear;
+            transition: background-color 0.4s linear;
+        }
+    }
+}
+
+.text-center {
+    .radio-holder {
+        display: block;
+        margin: 5px 0;
+        label {
+            text-align: center;
+            margin: 0 !important;
+        }
+    }
+}
+
+.radio-holder {
+    input[type="checkbox"] + label span {
+        @include rounded(2px);
+    }
+    input[type="radio"] + label span {
+        @include rounded(30px);
+    }
+}

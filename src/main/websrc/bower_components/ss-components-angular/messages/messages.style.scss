@@ -1,0 +1,151 @@
+@import "../../../assets/sass/brand/_global";
+
+//colors
+.mb-box-holder {
+    position: fixed;
+    right: -1px;
+    max-width: 330px;
+    z-index: 30;
+    top: 50px;
+    
+    .close-all {
+        padding: 0 10px;
+        position: relative;
+        background: #f1f1f1;
+        font-size: 14px;
+        color: #252b34;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        border-left: 3px solid darken(#ebebeb, 4%);
+        span {
+            position: absolute;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            top: 0;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    .mb-box {
+        transform-origin: 50% 0;
+        background: #fff;
+        color: #484860;
+        font-size: 13px;
+        padding: 10px 15px 10px 10px;
+        line-height: 1.4;
+        position: relative;
+        .icon {
+            position: absolute;
+            display: block;
+            top: 50%;
+            margin-top: -20px;
+            left: 24px;
+            font-size: 1.3em;
+            color: #fff;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 40px;
+            @include rounded(300px);
+        }
+        .line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #ebebeb;
+            span {
+                width: 100%;
+                position: absolute;
+                top: 0;
+                height: 100%;
+                @include transition(height .3s ease-out);
+            }
+        }
+        &.hide {
+            top: -5000px;
+        }
+        &.mb-show {
+            pointer-events: auto;
+        }
+        &.error {
+            .icon {
+                background: #f5aca6;
+            }
+            .line span {
+                background: #f5aca6;
+            }
+        }
+        &.success {
+            .icon {
+                background: #a6ca8a;
+            }
+            .line span {
+                background: #a6ca8a;
+            }
+        }
+        &.warning {
+            .icon {
+                background: #f2c779;
+            }
+            .line span {
+                background: #f2c779;
+            }
+        }
+        &.info {
+            .icon {
+                background: #8ed9f6;
+            }
+            .line span {
+                background: #8ed9f6;
+            }
+        }
+        .inner {
+            padding: 10px 25px 10px 75px;
+        }
+        p {
+            margin: 0;
+            .button {
+                cursor: pointer;
+                font-size: 80%;
+            }
+        }
+        .mb-close {
+            width: 40px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            font-size: 15px;
+            text-align: center;
+            margin-top: -10px;
+            &:hover {
+                outline: none;
+            }
+            &:focus {
+                outline: none;
+            }
+            &:hover::before {
+                background: #fff;
+            }
+            &:hover::after {
+                background: #fff;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 25em) {
+    .mb-box-holder {
+        left: 0;
+        max-width: none;
+        right: 0;
+        top: 50px;
+        bottom: auto;
+    }
+}

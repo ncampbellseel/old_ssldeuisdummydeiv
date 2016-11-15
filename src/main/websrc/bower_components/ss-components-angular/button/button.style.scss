@@ -1,0 +1,106 @@
+@import "../../../assets/sass/brand/_global";
+
+// A rounded class + transition for input buttons
+.button,
+button,
+input[type=submit],
+input[type=reset],
+input[type=button] {
+    min-width: 0;
+    box-sizing: border-box;
+    @include rounded(2px);
+    @include transition(background-color .3s ease);
+    cursor: pointer;
+    &.min {
+        min-width: 170px;
+    }
+    &:focus {
+        outline: none;
+        border: 2px solid #ffbf47 !important;
+    }
+    &:not(.secondary, .no-shadow) {
+        @include box-shadow(2px, 2px, 2px, #A2CAE8, false);
+        &:focus {
+            border: 0;
+            color: #fff;
+        }
+        &:hover {
+            @include box-shadow(2px, 2px, 6px, #A2CAE8, false);
+        }
+    }
+    &.secondary {
+        background: #fff;
+        vertical-align: top;
+    }
+    &.alert {
+        background: $color-alert;
+        border-color: $color-alert;
+        &:hover {
+            background: darken($color-alert, 5%);
+        }
+    }
+    &.warning {
+        background: $color-warning;
+        border-color: $color-warning;
+        &:hover {
+            background: darken($color-warning, 5%);
+        }
+    }
+    &.alt {
+        background: $color-blue-alt;
+        border-color: darken($color-blue-alt, 3%);
+        @include box-shadow(2px, 2px, 2px, darken($color-blue-alt, 6%), false);
+        &:hover {
+            background: darken($color-blue-alt, 4%);
+        }
+    }
+    &.left-button {
+        @include rounded(2px 0 0 2px);
+    }
+    &.right-button {
+        @include rounded(0 2px 2px 0);
+    }
+    &.middle-button {
+        @include rounded(0);
+    }
+    &.toggle {
+        font-size: 16px;
+        .txt {
+            font-size: 13px;
+            font-size: 13px;
+            display: inline-block;
+            position: relative;
+            top: -1px;
+            padding-left: 5px;
+        }
+        &.first {
+            border-right: 0 !important;
+        }
+        &.off {
+            background: #eee;
+            color: #444;
+            border-color: #B0A9A9;
+            @include box-shadow(0, 0, 0, rgba(0, 0, 0, 0.0), false);
+        }
+        &.on {
+            background: #eee;
+            @include box-shadow(0, 0, 14px, rgba(0, 0, 0, 0.3), true);
+            color: #444;
+            border-color: #B0A9A9;
+        }
+    }
+    &.button-icon {
+        min-width: 0;
+        text-align: center;
+        padding: 0 10px !important;
+        display: inline-block;
+        line-height: 2.4em;
+        .fa {
+            display: block;
+            text-align: center;
+            float: none;
+            line-height: 2.4em;
+            margin: 0 4px !important;
+        }
+    }
+}

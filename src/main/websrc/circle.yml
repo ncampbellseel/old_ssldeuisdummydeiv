@@ -1,0 +1,27 @@
+machine:
+  node:
+    version: 5.11.0
+dependencies:
+  pre:
+    - rm -r ~/.gradle
+    - mv -u user-config-circle.sh user-config.sh
+    - echo "Rewrote file"
+    - ls
+    - sleep 11
+    - npm run init
+general:
+  branches:
+    only:
+      - master # list of branches to build
+      - /feature.*/ # or regexes
+deployment:
+  production:
+    branch: master
+    commands:
+      - lftp -c "open -u ss-agent@soprasteriaux.com,55_4g3nt ftp.soprasteriaux.com; set ftp:ssl-allow off; mirror -R dist /whitelabel"
+      - lftp -c "open -u ss-agent@soprasteriaux.com,55_4g3nt ftp.soprasteriaux.com; set ftp:ssl-allow off; mirror -R styleguide/dist /styleguide"
+  staging:
+    branch: /feature.*/
+    commands:
+      - lftp -c "open -u ss-agent@soprasteriaux.com,55_4g3nt ftp.soprasteriaux.com; set ftp:ssl-allow off; mirror -R dist /staging"
+      - lftp -c "open -u ss-agent@soprasteriaux.com,55_4g3nt ftp.soprasteriaux.com; set ftp:ssl-allow off; mirror -R styleguide/dist /staging-styleguide"

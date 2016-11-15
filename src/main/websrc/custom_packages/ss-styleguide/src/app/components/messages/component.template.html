@@ -1,0 +1,46 @@
+<h4 class="beta uppercase">Messages</h2>
+
+    <div class="row" ng-controller="MessagesCtrl">
+        <div class="col-5--medium">
+            <div class="editor">
+                <p>Click <a href="" ng-click="pushSuccess();"><u>here</u></a> to launch a
+                    <strong>success message</strong>
+                </p>
+                <p>Click <a href="" ng-click="pushError();"><u>here</u></a> to launch an
+                    <strong>error message</strong>
+                </p>
+                <p>Click <a href="" ng-click="pushWarning();"><u>here</u></a> to launch a
+                    <strong>warning message</strong>
+                </p>
+                <p>Click <a href="" ng-click="pushInfo();"><u>here</u></a> to launch an
+                    <strong>info message</strong>
+                </p>
+                <p>Click <a href="" ng-click="pushButton();"><u>here</u></a> to launch an
+                    <strong>button message</strong>
+                </p>
+                <div ng-include="'components/messages/example.template.html'"></div>
+            </div>
+        </div>
+        <div class="col-7--medium">
+        <p>
+            Pop-up message types to display information to users.
+            </p>
+            <p>
+            Will expire and disapear after a time limit.
+            </p>
+            <p>
+            Hover to prevent the message expiration (Pause). 
+            </p>
+    </div>
+
+  
+    </div>
+    <div class="row soft--top">
+              <div class=" col-push-3 col-6--medium">
+            <div class="example push--ends">
+                <pre><code class="language-markup" ss-prism type="true" ng-include="'components/messages/example.template.html'"></code></pre>
+            </div>
+        </div>
+    </div>
+
+    

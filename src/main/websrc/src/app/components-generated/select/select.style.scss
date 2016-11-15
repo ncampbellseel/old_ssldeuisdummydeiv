@@ -1,0 +1,106 @@
+@import "../../../assets/sass/brand/_global";
+
+body {
+    .selectize-control {
+        .selectize-input {
+            border-radius: 3px !important;
+            box-shadow: none;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif !important;
+            padding: 0 0 0 8px !important;
+            input {
+                font-size: 1em;
+            }
+        }
+    }
+    .selectize-dropdown {
+        .dd-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            &.active {
+                background: lighten($color-blue-alt, 40%);
+            }
+        }
+        .label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .caption {
+            font-size: 11px;
+            font-style: italic;
+            color: #777;
+        }
+        .highlight {
+            color: $color-primary;
+        }
+    }
+    .selectize-container {
+        .selectize-input {
+            height: 2.2em;
+            line-height: 2.2em;
+        }
+    }
+    .selectize-container {
+        color: #444 !important;
+        font-weight: normal !important;
+        height: 2.37em;
+        width: 100%;
+    }
+    .selectize-input {
+        height: 2.37em;
+        line-height: 2.37em;
+        border-color: #bfc1c3;
+        @include rounded(3px);
+        background: #fff !important;
+    }
+    .selectize-input.focus,
+    .selectize-input.input-active {
+        border-color: #ffbf47 !important;
+        color: #444;
+        @include box-shadow(0, 0, 1px, #ffbf47, false, 1px);
+    }
+    .created-box {
+        .selectize-control {
+            padding: 0 10px !important;
+            .selectize-input {
+                height: 2.1em;
+                line-height: 2.1em;
+                font-size: .85em;
+                margin-top: 8px;
+                position: relative;
+                top: 2px;
+            }
+        }
+        &.history {
+            .selectize-control {
+                .selectize-input {
+                    margin-bottom: 8px;
+                    margin-top: 2px;
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+
+//Addition: required form styles
+.required {
+    border-left: 3px solid #ffbf47;
+    &--child {
+        border-left: 0;
+        > div a,
+        .selectize-input {
+            border-left: 3px solid #ffbf47 !important;
+            @include rounded(3px 0 0 3px);
+        }
+    }
+}
+
+body {
+    .field-errors {
+        .required--child .selectize-input {
+            border-left: 3px solid $color-alert !important;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<div class="wrap" ng-show="!loggingIn">
+    <div class="row push--top push-2--top--medium push-3--top--medium">
+        <div class="col-12 col-6--medium col-6--large col-push-3--medium col-push-3--large">
+            <h1 class="push-2--bottom">{{ 'app.login.title.main' | translate }}</h1>
+            <div class="bg-blue--lighter soft soft-3--bottom">
+                <form id="loginForm" novalidate>
+                    <label class="block" for="credentials.username">{{ 'app.login.field.username.title' | translate }}</label>
+                    <input class="width-full" type="text" ng-model="credentials.user.username" name="username" id="username" required="required" />
+                    <label class="block push-2--top" for="password">{{ 'app.login.field.password.title' | translate }}</label>
+                    <input class="width-full" type="password" ng-model="credentials.user.password" name="password" id="password" class="push--bottom" required="required" />
+                    <ss-error-messages></ss-error-messages>
+                </form>
+            </div>
+            <div class="push-2--top">
+                <input type="submit" class="primary" ng-click="login()" value="{{ 'app.login.button.login' | translate }}" />
+            </div>
+        </div>
+    </div>
+</div>
+<ss-loader ng-show="loggingIn"></ss-loader>

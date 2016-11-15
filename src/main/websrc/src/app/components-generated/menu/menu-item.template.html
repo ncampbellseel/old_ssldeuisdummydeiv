@@ -1,0 +1,13 @@
+<span class="fa arrow" ng-class="{'fa-chevron-down': item.subPages}"></span>
+<span class="count" ng-if="tasks.length && item.id === 0">{{tasks.length}}</span>
+<label class="menu-link" title="{{(item.nav ? item.nav : item.title)}}" angular-ripple>
+    <i class="menu-icon fa {{item.icon}}" ng-class="{'animated tada infinite': tasks.length && item.id === 0}"></i>
+    <span class="menu-label">
+        {{ (item.nav ? item.nav : item.title) | translate }}</span>
+</label>
+<ul class="sub-menu" ng-if="item.subPages">
+    <li ng-repeat="subItem in item.subPages" ng-click="goToPage($event, subItem.link, subItem.id, item.id)" angular-ripple>
+        <span class="sub-link" ng-class="{'active': subItem.id === activeItem}">
+            <span class="fa fa-chevron-right arrow"></span>{{ (subItem.nav ? subItem.nav : subItem.title) | translate }}</span>
+    </li>
+</ul>

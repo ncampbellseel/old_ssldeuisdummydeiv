@@ -1,0 +1,38 @@
+{
+    "name": "SopraSteria-WhiteLabel-Angular",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Bryce Wilson <bryce.wilson@soprasteria.com>",
+    "license": "UNLICENSED",
+    "description": "",
+    "devDependencies": {
+        "bower": "1.4.x",
+        "gulp": "^3.9.0",
+        "gulp-concat-json": "^1.0.0",
+        "require-dir": "0.3.x",
+        "ss-build-gulp": "./custom_packages/ss-build-gulp"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "tests"
+    ],
+    "resolutions": {},
+    "keywords": [],
+    "scripts": {
+        "ss-clone": "sh ss-clone.sh && sh ss-clone-clean.sh",
+        "ss-update": "sh ss-update.sh",
+        "init": "bower install  && npm install",
+        "build": "gulp build:cmp && gulp build --production && gulp local --production && gulp index --production && gulp test && gulp dist",
+        "build:skip": "gulp build:cmp && gulp build --production && gulp local --production && gulp index --production",
+        "build:dev": "gulp build:cmp && gulp build --dev && gulp index --dev && gulp bolt-on --dev && gulp local --dev && gulp test && gulp",
+        "build:dev:skip": "gulp build:cmp && gulp build --dev && gulp index --dev && gulp bolt-on --dev && gulp local --dev && gulp",
+        "build:java": "gulp build:cmp && gulp build --java && gulp index --java && gulp test",
+        "build:java:skip": "gulp build:cmp && gulp build --java && gulp index --java"
+    },
+    "dependencies": {
+        "gulp-load-plugins": "1.2.x",
+        "gulp-rename": "1.2.x"
+    }
+}

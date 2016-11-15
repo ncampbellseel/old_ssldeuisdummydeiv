@@ -1,0 +1,46 @@
+{
+    "app": {
+
+        "name": "Style Guide",
+
+        // START: Global
+
+        "global": {
+            "button": {
+                "begin": "Begin",
+                "back": "Back",
+                "cancel": "Cancel",
+                "submit": "Submit",
+                "next": "Next",
+                "yes": "Yes",
+                "no": "No",
+                "done": "Done",
+                "close": "Close"
+            },
+            "leave": {
+                "title": "Cancel Message",
+                "message": "Are you sure you wish to cancel this message?"
+            },
+            "top": "Back To Top",
+            "confirm": "Please Confirm",
+            "all": "- All",
+
+            "closeMenu": "Close",
+            "logout": "Logout"
+
+        },
+        // END: Global
+
+        // START: Dashboard
+
+        "home": {
+            "name": "Home",
+            "head": {
+                "main": "Welcome to the Style Guide",
+                "sub": "Overview of the Style Guide and its components"
+            }
+        }
+        // END: Dashboard
+
+    }
+}

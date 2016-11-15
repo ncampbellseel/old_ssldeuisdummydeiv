@@ -1,0 +1,226 @@
+[
+  {
+    "description": "Watch for route change",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "event"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "next"
+      },
+      {
+        "title": "returns",
+        "description": "sum",
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        }
+      },
+      {
+        "title": "name",
+        "name": "$on"
+      },
+      {
+        "title": "kind",
+        "kind": "function"
+      }
+    ],
+    "context": {
+      "loc": {
+        "start": {
+          "line": 104,
+          "column": 8
+        },
+        "end": {
+          "line": 114,
+          "column": 11
+        }
+      },
+      "file": "C:\\Development\\webapp\\src\\main\\websrc\\src\\app\\app.module.js",
+      "code": "{\r\n\r\n        /**\r\n         * Watch for route change\r\n         * @param {String} event\r\n         * @param {String} next\r\n         * @return {String} sum\r\n         */\r\n\r\n        $rootScope.$on('$routeChangeStart', function (event, next) {\r\n\r\n            window.scrollTo(0, 0);\r\n\r\n            if (next.requireLogin) {\r\n                if (AuthFactory.checkToken() === false) {\r\n                    $location.path('/login');\r\n                    event.preventDefault();\r\n                }\r\n            }\r\n        });\r\n    }"
+    },
+    "params": [
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "event"
+      },
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "next"
+      }
+    ],
+    "returns": [
+      {
+        "title": "returns",
+        "description": "sum",
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        }
+      }
+    ],
+    "name": "$on",
+    "kind": "function",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "path": [
+      "$on"
+    ]
+  },
+  {
+    "description": "App controller.",
+    "tags": [
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NonNullableType",
+          "expression": {
+            "type": "NameExpression",
+            "name": "angular.Scope"
+          },
+          "prefix": true
+        },
+        "name": "$scope"
+      },
+      {
+        "title": "class",
+        "description": null,
+        "type": null,
+        "name": null
+      },
+      {
+        "title": "ngInject",
+        "description": null
+      },
+      {
+        "title": "export",
+        "description": null
+      },
+      {
+        "title": "name",
+        "name": "AppController"
+      },
+      {
+        "title": "kind",
+        "kind": "class"
+      }
+    ],
+    "context": {
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 4
+        },
+        "end": {
+          "line": 237,
+          "column": 5
+        }
+      },
+      "file": "C:\\Development\\webapp\\src\\main\\websrc\\src\\app\\app.controller.js",
+      "code": "{\r\n\r\n    'use strict';\r\n\r\n    angular\r\n        .module('whitelabelApp')\r\n        .controller('AppController', AppController);\r\n\r\n    AppController.$inject = ['$scope', '$interval', '$location', '$timeout', '$translate', 'ApiUrl', 'ReferenceFactory', 'GlobalFactory', 'FlashFactory', 'ngDialog'];\r\n\r\n    /**\r\n     * App controller.\r\n     *\r\n     * @param {!angular.Scope} $scope\r\n     * @constructor\r\n     * @ngInject\r\n     * @export\r\n     */\r\n\r\n    function AppController($scope, $interval, $location, $timeout, $translate, ApiUrl, ReferenceFactory, GlobalFactory, FlashFactory, ngDialog) {\r\n\r\n        //var vm = this;\r\n\r\n        $scope.timePickerOptions = {\r\n            timeFormat: 'H:i'\r\n        };\r\n\r\n        $scope.flash = null;\r\n        $scope.placeholder = 'app.global.all';\r\n        $scope.cob = 'CATCHNBORD';\r\n\r\n        $scope.dateStyle = 'mediumDate';\r\n\r\n        $scope.yesNoOptions = [{\r\n            name: 'app.global.button.yes',\r\n            value: true\r\n        }, {\r\n            name: 'app.global.button.no',\r\n            value: false\r\n        }];\r\n\r\n        $scope.toTheTop = function () {\r\n            window.scrollTo(0, 0);\r\n        };\r\n\r\n        $scope.isLogin = function () {\r\n            if ($location.$$path === '/login') {\r\n                return true;\r\n            }\r\n            return false;\r\n        };\r\n\r\n        $scope.changeLanguage = function (key) {\r\n            $translate.use(key);\r\n        };\r\n\r\n        // FIX THESE\r\n\r\n        var isMobile = {\r\n            Android: function () {\r\n                return /Android/i.test(navigator.userAgent);\r\n            },\r\n            BlackBerry: function () {\r\n                return /BlackBerry/i.test(navigator.userAgent);\r\n            },\r\n            iOS: function () {\r\n                return /iPhone|iPad|iPod/i.test(navigator.userAgent);\r\n            },\r\n            Windows: function () {\r\n                return /IEMobile/i.test(navigator.userAgent);\r\n            },\r\n            any: function () {\r\n                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());\r\n            }\r\n        };\r\n\r\n        $scope.isMobile = function () {\r\n            return isMobile.any();\r\n        };\r\n\r\n        $scope.checkValidDate = function (date) {\r\n            return GlobalFactory.dateValid(date);\r\n        };\r\n\r\n        $scope.checkValidTime = function (date, time) {\r\n            return GlobalFactory.dateValid(date, time, true);\r\n        };\r\n\r\n        $scope.checkValidLatlong = function (latlong) {\r\n            return GlobalFactory.latlongValid(latlong);\r\n        };\r\n\r\n        $scope.hasEntry = function (entry) {\r\n            if (entry) {\r\n                if (entry !== 0 || entry !== '0' || entry !== null) {\r\n                    return true;\r\n                }\r\n            }\r\n            return false;\r\n        };\r\n\r\n        $scope.getGearLabel = function (gear) {\r\n            if (!gear) {\r\n                return 'ERROR';\r\n            }\r\n            if (gear.hasMesh) {\r\n                return gear.code + ' - ' + gear.meshSize;\r\n            }\r\n            if (gear.reportHookCount) {\r\n                return gear.code + ' - ' + gear.hookCount;\r\n            }\r\n            if (gear.reportFishingDepth) {\r\n                return gear.code + ' - ' + gear.fishingDepth;\r\n            }\r\n            if (gear.reportNetDimensions) {\r\n                return gear.code + ' - ' + gear.netDimensions.averageNetLength + 'x' + gear.netDimensions.averageNetHeight + 'x' + gear.netDimensions.nominalNetLength + 'x' + gear.netDimensions.totalLengthMeters;\r\n            }\r\n            return gear.code;\r\n        };\r\n\r\n        $scope.$watch(function () {\r\n                return FlashFactory.getFlash();\r\n            },\r\n            function () {\r\n                if (FlashFactory.getFlash() && FlashFactory.getFlash().message) {\r\n                    $scope.flash = FlashFactory.getFlash();\r\n                    FlashFactory.removeFlash();\r\n\r\n                    if ($scope.flash.type === 'success') {\r\n                        $timeout(function () {\r\n                            $scope.removeFlash();\r\n                        }, 15000);\r\n                    }\r\n                }\r\n            });\r\n\r\n        $scope.removeFlash = function () {\r\n            if ($scope.flash) {\r\n                $scope.flash = null;\r\n            }\r\n        };\r\n\r\n        $scope.credentials = {\r\n            user: {}\r\n        };\r\n        $scope.errors = [];\r\n        $scope.close = {};\r\n\r\n        $scope.dateOptions = {};\r\n        $scope.dateFormat = 'dd/MM/yyyy';\r\n        $scope.portOptions = [];\r\n\r\n        $scope.credentials.user.username = 'user1';\r\n        $scope.credentials.user.password = 'user1';\r\n\r\n        $scope.today = new Date();\r\n\r\n        $scope.isAuthenticated = function () {\r\n            if (!$scope.credentials || !$scope.credentials.user) {\r\n                $scope.logout();\r\n            }\r\n        };\r\n\r\n        $scope.logout = function () {\r\n            $scope.credentials = {};\r\n            $location.path('/location');\r\n        };\r\n\r\n        $scope.worktasks = [];\r\n\r\n        $scope.updateWorktasks = function () {\r\n            // WorktaskFactory.connect()\r\n            //     .success(function(data) {\r\n            //         var incompleteTasks = $.grep(data, function(task) {\r\n            //             return task.taskStatus !== 'Completed';\r\n            //         });\r\n            //         $scope.worktasks = incompleteTasks;\r\n            //     });\r\n        };\r\n\r\n        $scope.worktaskDone = function () {\r\n            // PUT BACK: task\r\n            // task.completing = true;\r\n            // WorktaskFactory.completed(task.taskId)\r\n            //     .success(function() {\r\n            //         $scope.updateWorktasks();\r\n            // });\r\n        };\r\n\r\n        $scope.discardSave = function (title, message, url) {\r\n\r\n            $scope.close = {\r\n                title: title,\r\n                message: message\r\n            };\r\n\r\n            ngDialog.open({\r\n                templateUrl: 'core/elements/discard.template.html',\r\n                scope: $scope,\r\n                preCloseCallback: function (value) {\r\n                    if (value === true) {\r\n                        $scope.goToPage(url);\r\n                    }\r\n                }\r\n            });\r\n        };\r\n\r\n        // $scope.updateWorktasks();\r\n\r\n        // $interval(function () {\r\n        //     $scope.updateWorktasks();\r\n        // }, 60000);\r\n\r\n        ReferenceFactory.landingports()\r\n            .success(function (data) {\r\n                $scope.portOptions = data;\r\n            });\r\n\r\n        $scope.faoNice = function (faoArea) {\r\n            return GlobalFactory.faoNice(faoArea);\r\n        };\r\n\r\n        $scope.goToPage = function (url) {\r\n            $location.path('/' + url);\r\n        };\r\n\r\n        var init = function () {\r\n            $scope.removeFlash();\r\n        };\r\n\r\n        init();\r\n\r\n    }\r\n\r\n}"
+    },
+    "params": [
+      {
+        "title": "param",
+        "description": null,
+        "type": {
+          "type": "NonNullableType",
+          "expression": {
+            "type": "NameExpression",
+            "name": "angular.Scope"
+          },
+          "prefix": true
+        },
+        "name": "$scope"
+      }
+    ],
+    "name": "AppController",
+    "kind": "class",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "path": [
+      "AppController"
+    ]
+  },
+  {
+    "description": "Description and usage",
+    "tags": [
+      {
+        "title": "returns",
+        "description": "Back to top functionality",
+        "type": {
+          "type": "NameExpression",
+          "name": "angular.Directive"
+        }
+      },
+      {
+        "title": "name",
+        "name": "backToTop"
+      },
+      {
+        "title": "kind",
+        "kind": "function"
+      }
+    ],
+    "context": {
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 4
+        },
+        "end": {
+          "line": 98,
+          "column": 5
+        }
+      },
+      "file": "C:\\Development\\webapp\\src\\main\\websrc\\src\\app\\core\\directives\\back-to-top.directive.js",
+      "code": "{\r\n    'use strict';\r\n\r\n    angular\r\n        .module('whitelabelApp')\r\n        .directive('backToTop', backToTop);\r\n\r\n    backToTop.$inject = [];\r\n\r\n    /**\r\n     * Description and usage\r\n     * @return {angular.Directive} Back to top functionality\r\n     */\r\n\r\n    function backToTop() {\r\n\r\n        return {\r\n            restrict: 'E',\r\n            transclude: true,\r\n            replace: true,\r\n            template: '<div id=\"backtop\"><button class=\"button back-to-top\"><span class=\"fa fa-chevron-up push--right\"></span>{{text}}</button></div>',\r\n            scope: {\r\n                text: '@buttonText',\r\n                speed: '@scrollSpeed'\r\n            },\r\n            link: function (scope, element) {\r\n\r\n                var self = element;\r\n\r\n                scope.currentYPosition = function () {\r\n\r\n                    if (self.pageYOffset) {\r\n                        return self.pageYOffset;\r\n                    }\r\n                    if (document.documentElement && document.documentElement.scrollTop) {\r\n                        return document.documentElement.scrollTop;\r\n                    }\r\n                    if (document.body.scrollTop) {\r\n                        return document.body.scrollTop;\r\n                    }\r\n                    return 0;\r\n                };\r\n\r\n                scope.smoothScroll = function () {\r\n                    var startY = scope.currentYPosition();\r\n                    var stopY = 0;\r\n                    var distance = stopY > startY ? stopY - startY : startY - stopY;\r\n                    if (distance < 100) {\r\n                        scrollTo(0, stopY);\r\n                        return;\r\n                    }\r\n                    var speed = Math.round(scope.speed / 100);\r\n                    var step = Math.round(distance / 25);\r\n                    var leapY = stopY > startY ? startY + step : startY - step;\r\n                    var timer = 0;\r\n                    if (stopY > startY) {\r\n                        for (var i = startY; i < stopY; i += step) {\r\n                            setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);\r\n                            leapY += step;\r\n                            if (leapY > stopY) {\r\n                                leapY = stopY;\r\n                            }\r\n                            timer++;\r\n                        }\r\n                        return;\r\n                    }\r\n                    for (var j = startY; j > stopY; j -= step) {\r\n                        setTimeout('window.scrollTo(0, ' + leapY + ')', timer * speed);\r\n                        leapY -= step;\r\n                        if (leapY < stopY) {\r\n                            leapY = stopY;\r\n                        }\r\n                        timer++;\r\n                    }\r\n                };\r\n\r\n                scope.button = element.find('button');\r\n\r\n                scope.button.on('click', function () {\r\n                    scope.smoothScroll();\r\n                    element.removeClass('show');\r\n                });\r\n\r\n                window.addEventListener('scroll', function () {\r\n                    if (window.scrollY > 0) {\r\n                        element.addClass('show');\r\n                    } else {\r\n                        element.removeClass('show');\r\n                    }\r\n                });\r\n            }\r\n        };\r\n\r\n    }\r\n\r\n}"
+    },
+    "returns": [
+      {
+        "title": "returns",
+        "description": "Back to top functionality",
+        "type": {
+          "type": "NameExpression",
+          "name": "angular.Directive"
+        }
+      }
+    ],
+    "name": "backToTop",
+    "kind": "function",
+    "members": {
+      "instance": [],
+      "static": []
+    },
+    "path": [
+      "backToTop"
+    ]
+  }
+]

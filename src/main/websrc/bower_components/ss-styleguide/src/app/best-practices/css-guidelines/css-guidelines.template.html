@@ -1,0 +1,317 @@
+<h2 class="giga">CSS Guidelines</h2>
+
+<hr>
+
+<div class="editor">
+
+    <div class="row">
+
+        <div class="col-12--medium">
+
+            <p>In order to maintain a consistent structure across all our 
+            projects we have a strict naming convention on CSS selectors.</p>
+
+            <h2>Structure and indentation</h2>
+
+            <p>CSS files should be set up for 4 space indentation. Multiple 
+            selectors should be comma separated on one line and each 
+            declaration should be given a new line like so.</p>
+
+<pre>
+<code class="language-css" ss-prism type="true">label, .form-label {
+    display:block;
+    width:100%;
+    color:$brand;
+    font-size: 0.875em;
+    margin-top: 7.5px;
+}</code>
+</pre>
+
+            <hr>
+
+            <h2>Selectors</h2>
+
+            <p>We primarily use classes in our selectors to maintain a 
+            consistent level of CSS specificity. IDs should never be used due 
+            to their high specificity and tendency to override other styles.
+            </p>
+
+            <p>Tags can be used in selectors, but only for base level styling. 
+            Classes should be used wherever possible. Classes should never be 
+            appended to tags.</p>
+
+            <p>Class names should be delmited with a hyphen where appropriate. 
+            </p>
+
+            <div class="row">
+
+                <div class="col-6--medium">
+
+                    <p><strong>Good</strong></p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.border {}
+.sub-menu {}
+.editor h1 {}</code>
+</pre>
+
+                </div>
+
+                <div class="col-6--medium">           
+            
+                    <p><strong>Bad</strong></p>
+
+<pre>
+<code class="language-css" ss-prism type="true">#subMenu {}
+.subMenu {}
+.sub_menu {}
+ul.sub-menu {}</code>
+</pre>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h2>Order properties alphabetically</h2>
+
+            <p>By arranging CSS properties in alphabetical order we maintain 
+            consistency between rules. This also helps to quickly identify if a 
+            declaration has been applied to a selector.</p>
+
+            <hr>
+
+            <h2>Using BEM Conventions</h2>
+
+            <p>Where necessary we make use of the <a href="http://getbem.com">
+            BEM</a> (Block, Element, Modifier) syntax however this is not 
+            necessarily required for every element in the document. It is 
+            important to understand how BEM works and where it should and 
+            should not be used. Some useful respources on BEM can be found at 
+            the bottom of this document.</p>
+
+            <h3>Block</h3>
+
+            <p>Encapsulates a standalone entity that is meaningful on its own. 
+            While blocks can be nested and interact with each other, 
+            semantically they remain equal; there is no precedence or 
+            hierarchy. Holistic entities without DOM representation (such as 
+            controllers or models) can be blocks as well.</p>
+
+            <div class="row">
+
+                <div class="col-4--medium">
+
+                    <h4>Naming</h4>
+
+                    <p>Block names may consist of Latin letters, digits, and dashes. 
+                    Block names should be delimited with a single hyphen. To form a CSS 
+                    class, add a short prefix for namespacing: <code>.sub-menu</code>
+                    </p>
+
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>HTML</h4>
+
+                    <p>Any DOM node can be a block if it accepts a class name.</p>
+
+<pre>
+<code class="language-markup" ss-prism type="true">&lt;div class=&quot;sub-menu&quot;&gt;...&lt;/div&gt;</code>
+</pre>
+            
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>CSS</h4>
+
+                    <ul class="list list-disc list-indent">
+                        <li class="list--item">Use class name selector only</li>
+                        <li class="list--item">No tag names or id&#39;s</li>
+                        <li class="list--item">No dependency on other blocks/elements on a page</li>
+                    </ul>
+
+<pre>
+<code class="language-css" ss-prism type="true">.sub-menu { 
+    color: #042; 
+}</code>
+</pre>
+
+                </div>
+
+            </div>
+
+            <h3>Element</h3>
+
+            <p>Parts of a block and have no standalone meaning. Any element is 
+            semantically tied to its block.</p>
+
+            <div class="row">
+
+                <div class="col-4--medium">
+
+                    <h4>Naming</h4>
+
+                    <p>Element names may consist of Latin letters, digits, dashes 
+                    and underscores. CSS class is formed as block name plus two 
+                    underscores plus element name: <code>.sub-menu__item {}</code>
+                    </p>
+
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>HTML</h4>
+
+                    <p>Any DOM node within a block can be an element. Within a given 
+                    block, all elements are semantically equal.</p>
+
+<pre>
+<code class="language-markup" ss-prism type="true">&lt;ul class=&quot;sub-menu&quot;&gt;
+    ...
+    &lt;li class=&quot;sub-menu__item&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
+
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>CSS</h4>
+
+                    <ul class="list list-disc list-indent">
+                        <li class="list--item">Use class name selector only</li>
+                        <li class="list--item">No tag name or id&#39;s</li>
+                        <li class="list--item">No dependency on other blocks/elements on a page</li>
+                    </ul>
+
+                    <p><strong>Good</strong></p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.sub-menu__item { 
+    color: #042; 
+}</code>
+</pre>
+
+                    <p><strong>Bad</strong></p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.sub-menu .sub-menu__item { 
+    color: #042; 
+}
+
+li.sub-menu__item { 
+    color: #042; 
+}</code>
+</pre>
+
+                </div>
+
+            </div>
+
+            <h3>Modifier</h3>
+
+            <p>Flags on blocks or elements. Use them to change appearance, 
+            behavior or state.</p>
+
+            <div class="row">
+
+                <div class="col-4--medium">
+
+                    <h4>Naming</h4>
+
+                    <p>Modifier names may consist of Latin letters, digits, dashes 
+                    and underscores. CSS class is formed as block’s or element’s 
+                    name plus two dashes: <code>.block--mod</code> or 
+                    <code>.block__mod--mod</code> and 
+                    <code>.block--color-black</code> with 
+                    <code>.block--color-red</code>. Spaces in complicated modifiers 
+                    are replaced by dash.</p>
+
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>HTML</h4>
+
+                    <p>Modifier is an extra class name which you add to a block/element 
+                    DOM node. Add modifier classes only to blocks/elements they modify, 
+                    and keep the original class:</p>
+
+                    <p><strong>Good</strong></p>
+
+<pre>
+<code class="language-markup" ss-prism type="true">&lt;div class=&quot;block block--mod&quot;&gt;...&lt;/div&gt;
+
+&lt;div class=&quot;block block--size-big block--shadow-yes&quot;&gt;...&lt;/div&gt;</code>
+</pre>
+
+                    <p><strong>Bad</strong></p>
+
+<pre>
+<code class="language-markup" ss-prism type="true">&lt;div class=&quot;block--mod&quot;&gt;...&lt;/div&gt;</code>
+</pre>
+
+                </div>
+
+                <div class="col-4--medium">
+
+                    <h4>CSS</h4>
+
+                    <p>Use modifier class name as selector:</p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.block--hidden { 
+    ... 
+}</code>
+</pre>
+
+                    <p>To alter elements based on a block-level modifier:</p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.block--mod .block__elem { 
+    ...
+}</code>
+</pre>
+
+                    <p>Element modifier:</p>
+
+<pre>
+<code class="language-css" ss-prism type="true">.block__elem--mod { 
+    ...
+}</code>
+</pre>
+
+                </div>
+
+            </div>
+
+            <h2>Useful resources</h2>
+
+            <ul class="list list-disc list-indent">
+                <li class="list--item">
+                    <a href="http://getbem.com/" target="_blank">Get BEM</a>
+                </li>
+                <li class="list--item">
+                    <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank">
+                    MindBEMding – getting your head ’round BEM syntax</a>
+                </li>
+                <li class="list--item">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS" target="_blank">
+                    Writing efficient CSS - Mozilla Developer Network</a>
+                </li>
+                <li class="list--item">
+                    <a href="https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/" target="_blank">
+                    CSS Specificity: Things You Should Know - Smashing Magazine
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
