@@ -77,7 +77,6 @@
                                 <configuration>
                                     <nodeVersion>v5.10.1</nodeVersion>
                                     <npmVersion>3.10.5</npmVersion>
-                                    <npmDownloadRoot>http://msrepo:8081/nexus/content/sites/npm/</npmDownloadRoot>
                                     <workingDirectory>src/main/websrc</workingDirectory>
                                 </configuration>
                             </execution>
