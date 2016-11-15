@@ -24,7 +24,7 @@
             //var apiPath = 'http://localhost:8080/webapp/api/';
 
             // @if NODE_ENV=true
-            apiPath = '/api/';
+            apiPath = '/api';
             // @endif 
 
             return apiPath;
