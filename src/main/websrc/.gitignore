@@ -1,3 +1,45 @@
 /node/
 /node_modules/
 /node_modules_old/
+# Windows Installer files
+ehthumbs.db
+# Thumbnails
+.Trashes
+# Windows shortcuts
+# Files that might appear on external disk
+Desktop.ini
+node_modules
+.AppleDesktop
+*.lnk
+# Operating System Files
+*.msp
+._*
+docs
+*.msm
+*.msi
+npm-debug.log
+user-config.sh
+!custom_packages/README.md
+.LSOverride
+styleguide
+dist
+reports
+/src/app/components-generated
+bower_components
+.apdisk
+Network Trash Folder
+# OSX
+# =========================
+.AppleDouble
+$RECYCLE.BIN/
+# Directories potentially created on remote AFP share
+.DS_Store
+# Windows image file caches
+custom_packages/*
+Temporary Items
+.AppleDB
+*.cab
+Thumbs.db
+# Recycle Bin used on file shares
+# Folder config file
+.Spotlight-V100
