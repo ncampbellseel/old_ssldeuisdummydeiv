@@ -37,12 +37,12 @@
                 return;
             }
 
-            $scope.loggingIn = true;
+            $scope.loggingIn = false;
             $scope.errors = [];
 
-            AuthFactory.setToken('true');
-            AuthFactory.setRole('admin');
             AuthFactory.setRemember(true);
+            AuthFactory.setToken('123');
+            AuthFactory.setRole('admin');
             $timeout(function() {
                 $location.path('/dashboard');
             });

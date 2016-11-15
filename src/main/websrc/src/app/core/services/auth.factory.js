@@ -2,7 +2,7 @@
 
 //Factory - AuthFactory
 
-(function () {
+(function() {
     /*jshint -W004 */
 
     'use strict';
@@ -25,7 +25,7 @@
 
         //  Login
 
-        AuthFactory.login = function () {
+        AuthFactory.login = function() {
 
             // return $http({
             //     method: 'POST',
@@ -39,7 +39,7 @@
 
         // Token Handlers
 
-        AuthFactory.checkToken = function () {
+        AuthFactory.checkToken = function() {
 
             //Set logged out as false by default
 
@@ -58,7 +58,7 @@
             return AuthFactory.loggedIn;
         };
 
-        AuthFactory.getToken = function () {
+        AuthFactory.getToken = function() {
 
             if (localStorageService.get('token')) {
 
@@ -72,7 +72,7 @@
             }
         };
 
-        AuthFactory.setToken = function (token) {
+        AuthFactory.setToken = function(token) {
 
             if (token) {
 
@@ -86,7 +86,7 @@
             }
         };
 
-        AuthFactory.removeToken = function () {
+        AuthFactory.removeToken = function() {
 
             $rootScope.token = null;
 
@@ -100,14 +100,14 @@
 
         // Remember Token Handlers
 
-        AuthFactory.getRemember = function () {
+        AuthFactory.getRemember = function() {
 
             if (localStorageService.get('remember_me')) {
                 return localStorageService.get('remember_me');
             }
         };
 
-        AuthFactory.setRemember = function (remember_me) {
+        AuthFactory.setRemember = function(remember_me) {
 
             if (remember_me === true) {
                 localStorageService.set('remember_me', remember_me);
@@ -116,21 +116,21 @@
             }
         };
 
-        AuthFactory.removeRemember = function () {
+        AuthFactory.removeRemember = function() {
 
             localStorageService.remove('remember_me');
         };
 
         // Remember Role Handlers
 
-        AuthFactory.getRole = function () {
+        AuthFactory.getRole = function() {
 
             if (localStorageService.get('lvl')) {
                 return localStorageService.get('lvl');
             }
         };
 
-        AuthFactory.setRole = function (lvl) {
+        AuthFactory.setRole = function(lvl) {
 
             if (lvl) {
                 localStorageService.set('lvl', lvl);
@@ -139,14 +139,14 @@
             }
         };
 
-        AuthFactory.removeRole = function () {
+        AuthFactory.removeRole = function() {
 
             localStorageService.remove('lvl');
         };
 
         // Logout
 
-        AuthFactory.clearData = function () {
+        AuthFactory.clearData = function() {
             AuthFactory.removeToken();
             AuthFactory.removeRemember();
             AuthFactory.removeRole();
@@ -155,10 +155,10 @@
             // UserFactory.removeEmail();
         };
 
-        AuthFactory.logout = function () {
+        AuthFactory.logout = function() {
 
             AuthFactory.clearData();
-            $timeout(function () {
+            $timeout(function() {
                 $location.path('/login');
             }, 600);
         };
