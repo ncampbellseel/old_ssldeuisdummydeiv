@@ -2,7 +2,7 @@
 
 //Controller - AppController
 
-(function () {
+(function() {
 
     'use strict';
 
@@ -38,7 +38,7 @@
             desktop: false
         };
 
-        matchmedia.on('(min-width: 0px) and (max-width: 689px)', function (query) {
+        matchmedia.on('(min-width: 0px) and (max-width: 689px)', function(query) {
             if (query.matches) {
                 $scope.media.phone = true;
             } else {
@@ -46,7 +46,7 @@
             }
         });
 
-        matchmedia.on('(min-width: 690px) and (max-width: 919px)', function (query) {
+        matchmedia.on('(min-width: 690px) and (max-width: 919px)', function(query) {
             if (query.matches) {
                 $scope.media.tablet = true;
             } else {
@@ -54,7 +54,7 @@
             }
         });
 
-        matchmedia.on('(min-width: 920px)', function (query) {
+        matchmedia.on('(min-width: 920px)', function(query) {
             if (query.matches) {
                 $scope.media.desktop = true;
             } else {
@@ -79,7 +79,7 @@
             pages: MenuFactory.account()
         };
 
-        $scope.toggleMenu = function () {
+        $scope.toggleMenu = function() {
             $scope.navOptionsVert.open = !$scope.navOptionsVert.open;
         };
 
@@ -87,59 +87,39 @@
 
         $scope.dateStyle = 'MM/dd/yyyy';
 
-        $scope.updateWorktasks = function () {
-            NotificationsFactory.connect()
-                .success(function (data) {
 
-                    $scope.completedWorkTasks = [];
-                    $scope.availableWorkTasks = [];
-
-                    for (var s = 0; s < data.length; s++) {
-
-                        if (data[s].taskStatus === 'Completed') {
-                            $scope.completedWorkTasks.push(data[s]);
-                        } else {
-                            $scope.availableWorkTasks.push(data[s]);
-                        }
-                    }
-
-                });
-        };
-
-        $scope.updateWorktasks();
-
-        $interval(function () {
+        $interval(function() {
             $scope.updateWorktasks();
         }, 180000);
 
-        $scope.toTheTop = function () {
+        $scope.toTheTop = function() {
             window.scrollTo(0, 0);
         };
 
-        $scope.isExternal = function () {
+        $scope.isExternal = function() {
             if ($location.$$path === '/login') {
                 return true;
             }
             return false;
         };
 
-        $scope.removeFromArray = function (array, item) {
+        $scope.removeFromArray = function(array, item) {
             return GlobalFactory.removeFromArray(array, item);
         };
 
-        $scope.checkValidDate = function (date, dep, allowFuture) {
+        $scope.checkValidDate = function(date, dep, allowFuture) {
             return GlobalFactory.dateValid(date, false, false, dep, allowFuture);
         };
 
-        $scope.checkValidTime = function (date, time, dep, allowFuture) {
+        $scope.checkValidTime = function(date, time, dep, allowFuture) {
             return GlobalFactory.dateValid(date, time, true, dep, allowFuture);
         };
 
-        $scope.inArray = function (array, thing) {
+        $scope.inArray = function(array, thing) {
             return GlobalFactory.inArray(array, thing);
         };
 
-        $scope.hasEntry = function (entry) {
+        $scope.hasEntry = function(entry) {
             if (entry) {
                 if (entry !== 0 && entry !== '0' && entry !== null) {
                     return true;
@@ -148,10 +128,10 @@
             return false;
         };
 
-        $scope.focusPrevious = function (name, array, dd) {
+        $scope.focusPrevious = function(name, array, dd) {
             var id = name + (array.length - 1);
             if (dd) {
-                $timeout(function () {
+                $timeout(function() {
                     $('#' + id).find('.selectize-input:first').trigger('click');
                 });
             } else {
@@ -177,18 +157,18 @@
         $scope.credentials.user.username = 'user1';
         $scope.credentials.user.password = 'user1';
 
-        $scope.isAuthenticated = function () {
+        $scope.isAuthenticated = function() {
             if (!$scope.credentials || !$scope.credentials.user) {
                 $scope.logout();
             }
         };
 
-        $scope.logout = function () {
+        $scope.logout = function() {
             $scope.credentials = {};
             $location.path('/location');
         };
 
-        $scope.discardSave = function (title, message, url) {
+        $scope.discardSave = function(title, message, url) {
 
             $scope.close = {
                 title: title,
@@ -198,7 +178,7 @@
             ngDialog.open({
                 templateUrl: 'core/elements/discard.template.html',
                 scope: $scope,
-                preCloseCallback: function (value) {
+                preCloseCallback: function(value) {
                     if (value === true) {
                         $scope.goToPage(url);
                     }
@@ -206,11 +186,11 @@
             });
         };
 
-        $scope.hasDateValid = function (list, date, time, step, check, errors, valid) {
+        $scope.hasDateValid = function(list, date, time, step, check, errors, valid) {
             return ValidationFactory.hasDateValid(list, date, time, step, check, errors, valid);
         };
 
-        $scope.checkNextEntry = function (check, array) {
+        $scope.checkNextEntry = function(check, array) {
 
             if (!check) {
                 for (var i in array) {
@@ -222,7 +202,7 @@
             return true;
         };
 
-        $scope.goToPage = function (url, discard) {
+        $scope.goToPage = function(url, discard) {
 
             if (discard) {
                 $scope.discardSave('app.global.leave.title', 'app.global.leave.message', url);
@@ -231,7 +211,7 @@
             }
         };
 
-        var init = function () {
+        var init = function() {
 
             $scope.animation = {
                 headIcon: 'animated fadeInLeft',
