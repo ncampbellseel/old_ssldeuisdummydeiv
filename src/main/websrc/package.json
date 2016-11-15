@@ -24,7 +24,7 @@
         "ss-clone": "sh ss-clone.sh && sh ss-clone-clean.sh",
         "ss-update": "sh ss-update.sh",
         "init": "bower install  && npm install",
-        "build": "gulp build:cmp && gulp build --production && gulp local --production && gulp index --production && gulp test && gulp dist",
+        "build": "gulp build:cmp && gulp build --production && gulp local --production && gulp index --production && gulp test && gulp dist --production",
         "build:skip": "gulp build:cmp && gulp build --production && gulp local --production && gulp index --production",
         "build:dev": "gulp build:cmp && gulp build --dev && gulp index --dev && gulp bolt-on --dev && gulp local --dev && gulp test && gulp",
         "build:dev:skip": "gulp build:cmp && gulp build --dev && gulp index --dev && gulp bolt-on --dev && gulp local --dev && gulp",

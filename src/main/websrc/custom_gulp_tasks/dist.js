@@ -25,5 +25,5 @@ gulp.task('dist', function() {
     return gulp.src([
             config.paths.dist + '/**/*'
         ])
-        .pipe(gulpif(condition, gulp.dest(config.paths.target + '/webapp')));
+        .pipe(gulpif(condition, gulp.dest('../resources/static')));
 });

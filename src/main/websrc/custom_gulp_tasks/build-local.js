@@ -25,7 +25,6 @@ gulp.task('local', function (cb) {
 
     return sequence(
         'build:sg',
-        'dist',
         cb
     );
 });
