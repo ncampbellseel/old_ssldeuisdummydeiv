@@ -1,9 +1,0 @@
-<div class="col-{{boxClass}} col-{{boxSubClass}}--medium col-{{boxLargeClass}}--large pad-override">
-    <label ng-if="label">{{ label | translate }}</label>
-    <div class="pad-override">
-        <div class="datepicker-container rel">
-            <input ms-focus="isFocused" id="date{{inc}}" ng-keydown="checkInput($event);" type="text" placeholder="DD/MM/YYYY" maxlength="10" ng-model="date" ng-class="{'required' : checkValidDate(date, dep, max) !== true && required || check}" ng-blur="formatDate(date);" ng-disabled="disable"/>
-            <date-picker ng-hide="disable" iconify="true" placeholder="Choose date..." callback="completeDate()" format="dd/MM/yyyy" not-before="min" not-after="max" ng-model="dummyDate" language="en" weekstart="1" today="true" weeknum="true" autohide="true" /></date-picker>
-        </div>
-    </div>
-</div>

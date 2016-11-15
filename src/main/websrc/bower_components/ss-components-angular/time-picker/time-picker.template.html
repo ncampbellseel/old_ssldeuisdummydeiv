@@ -1,1 +1,0 @@
-<input ng-keydown="checkInput($event);" ng-keyup="addDivider($event);" maxlength="5" placeholder="{{'app.global.selectTime' | translate}}" type="text" id="time" ng-change="timeChange(time);" ng-model="time" ng-class="{'required' : required && checkValidTime(date, time, dep) !== true}" ng-blur="formatTime(time)" ng-disabled="disable" />
