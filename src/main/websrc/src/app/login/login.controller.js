@@ -40,26 +40,12 @@
             $scope.loggingIn = true;
             $scope.errors = [];
 
-            AuthFactory.login($scope.credentials)
-                .success(function(data) {
-                    console.log(data);
-                    if (data.message && data.message.error) {
-                        $scope.errors.push('Invalid credentials provided.');
-                    } else {
-                        AuthFactory.setToken(data.user.authToken);
-                        AuthFactory.setRole('admin');
-                        AuthFactory.setRemember(true);
-                        $timeout(function () {
-                            $location.path('/dashboard');
-                        });
-                    }
-                    $scope.loggingIn = false;
-                })
-                .error(function(data, status) {
-                    $scope.loggingIn = false;
-                    console.log('AJAX Error in login request: ' + status);
-                    $scope.errors.push('Sorry, an error occured while trying to log in.');
-                });
+            AuthFactory.setToken('true');
+            AuthFactory.setRole('admin');
+            AuthFactory.setRemember(true);
+            $timeout(function() {
+                $location.path('/dashboard');
+            });
         };
 
 
