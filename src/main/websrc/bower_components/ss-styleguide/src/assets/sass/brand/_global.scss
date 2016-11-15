@@ -1,0 +1,17 @@
+$color-silver: silver;
+$color-gray: #888;
+$color-green: #45ae72;
+$mellow-red: #df3034;
+$color-primary: #674172;
+$color-secondary: #8E44AD;
+$color-primary-dark: darken($color-primary, 10%);
+
+$color-blue: $color-primary;
+
+$color-light-bg: desaturate(lighten($color-secondary, 40%), 30%);
+$color-lighter-bg: lighten($color-light-bg, 8%);
+
+$fa-font-path: "fonts";
+$path-assets: 'assets/';
+
+@import "mixins";

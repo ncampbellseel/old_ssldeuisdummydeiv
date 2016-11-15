@@ -1,0 +1,57 @@
+<h2 class="giga">Radio Buttons and Checkboxes</h2>
+
+<hr/>
+
+<h3 class="heading mega">Checkboxes</h3>
+
+<div class="row">
+
+    <div class="col-3--medium">
+        <div class="example push--ends">
+            <h4>Example</h4>
+            <div ng-include="'components/radios-and-checkboxes/checkbox.template.html'"></div>
+        </div>
+    </div>
+
+    <div class="col-9--medium">
+        <div class="example push--ends">
+            <h4>Angular code example</h4>
+            <pre><code class="language-markup" ss-prism type="true" ng-include="'components/radios-and-checkboxes/checkbox.template.html'"></code></pre>        
+        </div>
+    </div>
+</div>
+
+<div ng-show="checkboxValues">
+    <div class="example push--ends">
+        <h4>Json Output</h3>
+        <pre>{{checkboxValues | json}}</pre>
+    </div>
+</div>
+
+<hr />
+
+<h3 class="heading mega">Radio buttons</h3>
+
+<div class="row">
+    <div class="col-3--medium">
+        <div class="example push--ends">
+            <h4>Example</h4>
+            <div ng-include="'components/radios-and-checkboxes/radios.template.html'"></div>
+        </div>
+    </div>
+    <div class="col-9--medium">
+        <div class="example push--ends">
+            <h4>Angular code example</h4>
+
+            <pre><code class="language-markup" ss-prism type="true" ng-include="'components/radios-and-checkboxes/radios.template.html'"></code></pre>
+
+        </div>
+    </div>
+</div>
+
+<div ng-show="radioValue">
+    <div class="example push--ends">
+        <h4>Json Output</h3>
+            <pre>{{radioValue | json}}</pre>
+    </div>
+</div>

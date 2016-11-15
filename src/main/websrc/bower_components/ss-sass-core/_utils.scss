@@ -1,0 +1,62 @@
+$fix-mqs: false !default;
+$fix-mqs-height: false !default;
+
+@mixin respond-min($width) {
+    @if $fix-mqs {
+        @if $fix-mqs >= $width {
+            @content;   
+        }
+    }
+    @else {
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max($width) {
+    @if $fix-mqs {
+        @if $fix-mqs <= $width {
+            @content;   
+        }
+    }
+    @else {
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-min-height($height) {
+    @if $fix-mqs-height {
+        @if $fix-mqs-height >= $height {
+            @content;   
+        }
+    }
+    @else {
+        @media screen and (min-height: $height) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max-height($height) {
+    @if $fix-mqs-height {
+        @if $fix-mqs-height <= $height {
+            @content;   
+        }
+    }
+    @else {
+        @media screen and (max-height: $height) {
+            @content;
+        }
+    }
+}
+
+$old-ie: false !default;
+
+@mixin old-ie {
+    @if $old-ie {
+        @content;
+    }
+}

@@ -1,0 +1,16 @@
+<nav role="navigation" class="{{menuType}}" ng-class="{'is-phone' : media.phone, 'is-tablet' : media.tablet, 'open' : options.open || media.desktop, 'mini' : options.mini }">
+    <div class="menu-close" ng-if="media.phone && options.type === 'vert' || media.tablet && options.type === 'vert'">
+        <i class="collapse_menu--icon fa fa-close" ng-click="toggleMenu()"></i>
+    </div>
+    <ul role="menubar" class="menu">
+        <li class="cat-title" ng-if="options.type === 'vert'">Primary</li>
+        <li ss-nav-item ng-repeat="item in options.pages | filter: { primary: true }" class="menu-item" ng-class="{'expanded': item.id === expandedItem, 'has-sub': item.subPages, 'open': checkActivePages(item)}" ng-click="goToPage($event, checkLink(item), item.id);" ng-hide="item.id === 0 && options.phone || item.id === 0 && options.tablet || item.primary === false"></li>
+        <li class="cat-title" ng-if="options.type === 'vert'">Secondary</li>
+        <li ss-nav-item ng-repeat="item in options.pages | filter: { primary: '!true' }" class="menu-item" ng-class="{'expanded': item.id === expandedItem, 'has-sub': item.subPages, 'open': checkActivePages(item)}" ng-click="goToPage($event, checkLink(item), item.id);" ng-hide="item.primary === false" ng-if="options.type === 'vert'"></li>
+    </ul>
+    <span accesskey="c" class="collapse-menu hide-ak" ng-click="collapseMenu();" ng-if="options.type === 'vert'">
+        <i class="icon fa fa-chevron-left"></i>
+        <span class="label" data-showkey="c">{{ 'app.global.closeMenu' | translate }}</span>
+    </span>
+    <span class="close-bg" ng-click="toggleMenu()" ng-if="options.type === 'vert'"></span>
+</nav>

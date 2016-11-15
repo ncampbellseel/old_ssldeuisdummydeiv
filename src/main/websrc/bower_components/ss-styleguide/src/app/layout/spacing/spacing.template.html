@@ -1,0 +1,307 @@
+<h2 class="giga">Spacing</h2>
+
+<hr/>
+
+<div class="editor">
+
+    <p>Spacing refers to padding and margins added to elements.  The spacing values are based off of the baseline, or gutter values of the project.</p>
+
+    <p>In this project the gutters are to be 30px, this means that the spacing values are all to be multiples or divisions of 30.</p>
+
+    <p>As the CSS styles in this project are abstracted from the style sheet, it is possible to add classes to html elements to implement spacing.</p>
+
+    <p>The spacing classes are set to be consistent, but also responsive based on breakpoints.  </p>
+
+    <h3>Margins</h3>
+
+    <h4>Push Class</h4>
+
+    <p>Margins are set by using the css class ‘push’, and its various modifiers. If the class ‘push’ is added to an html element, the element is given 30px margins on all sides.</p>
+
+    <div class="example push--top">
+        <div class="border">
+            <div class="push">
+                <p class="flush">Push class</p>
+            </div>
+        </div>
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="push">
+    <p>Push class</p>
+</div></script></code></pre>
+
+    <p>The size of the margin created by the ‘push’ class can be changed by using alternative push classes. Using ‘push-half’ creates 15px margins on all sides of the element, while using ‘soft-2’, soft-3’ and ‘soft-4’ would add margins of 60px, 90px and 120px respectively.</p>
+
+    <div class="example push--top">
+
+        <div class="border">
+            <div class="push-half">
+                <p class="flush">Push-half class</p>
+            </div>
+        </div>
+
+        <div class="border push--top">
+            <div class="push">
+                <p class="flush">Push class</p>
+            </div>
+        </div>
+
+        <div class="border push--top">
+            <div class="push-2">
+                <p class="flush">Push-2 class</p>
+            </div>
+        </div>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="push-half">
+    <p>Push-half class</p>
+</div>
+
+<div class="push">
+    <p>Push class</p>
+</div>
+
+<div class="push-2">
+    <p>Push-2 class</p>
+</div></script></code></pre>
+
+    <p>Modifiers can be added to the push classes to indicate specific sides that the margins are to be applied to. A class of ‘push—left’ will add a margin of 30px to the left hand side of the element.</p>
+
+    <div class="example push--top">
+
+        <div class="border">
+
+            <div class="push--left">
+                <p class="flush">Push--left class</p>
+            </div>
+
+        </div>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup"><div class="push--left">
+    <p>Push--left class</p>
+</div></script></code></pre>
+
+    <p>‘push--top’, ‘push--right’ and ‘push--bottom’ all work in similar ways.</p>
+
+    <p>Special directional modifiers have also been included. ‘--ends’ refers to adding margins on the top and bottom of the element only, while ‘--sides’ refers to having margins only on the left and right sides of the element.</p>
+
+    <p>Push classes also have breakpoint modifier classes available. Eg.</p>
+
+    <div class="example push--top">
+        <div class="border">
+            <div class="push-half push--small push-2--medium push-3--large">
+                <p class="flush">Multiple breakpoints example.</p>
+            </div>
+        </div>
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="push-half push--small push-2--medium push-3--large">
+    <p>Multiple breakpoints example.</p>
+</div></script></code></pre>
+
+    <p>This creates a div which has 15px margin at smallest screen sizes, 30px above the first breakpoint, 60px above the second breakpoint, and 90px above the third breakpoint.</p>
+
+    <p>Breakpoint modifiers can also be added to the directional modifier classes, so a class of ‘.push-2—left—medium’ would add a 60px left hand margin above the medium breakpoint.</p>
+
+    <h4>Flush Class</h4>
+
+    <p>Margins are removed from an element by using the ‘flush’ class. When the class of ‘flush’ is added to an element, the margins on the element are set to 0px.</p>
+
+    <div class="example push--top">
+        <div class="border">
+            <div class="flush">
+                <p class="flush">Flush class</p>
+            </div>
+        </div>
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="flush">
+    <p>Flush class</p>
+</div></script></code></pre>
+
+    <p>This creates an element with no margins.</p>
+
+    <p>Similar to the ‘push’ class, the ‘flush’ class can also have directional modifiers, so a class of ‘flush—right’ can be used to remove margins only on the right side of the element.</p>
+
+    <p>The ‘flush’ class should override the ‘push’ class at the various different breakpoints.</p>
+
+    <p>This means that an element can have margins at some breakpoints, but not at others, and can also have margins overridden at certain breakpoints. For example:</p>
+
+    <div class="example">
+        <div class="border">
+            <div class="push flush--left--small push-2--left--medium push—large flush--right--large">
+                <p class="flush">Flush classes at various breakpoints</p>
+            </div>
+        </div>
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="push flush--left--small push-2--left--medium push—-large flush--right--large">
+    <p>Flush classes at various breakpoints</p>
+</div></script></code></pre>
+
+    <p>The above example is unlikely to be required, but showcases how margins can be added and removed at various break points.</p>
+
+    <h3>Padding</h3>
+    <h4>Soft Class</h4>
+
+    <p>Padding is set by using the css class ‘soft’, and its various modifiers. If the class ‘soft’ is added to an html element, the element is given 30px padding on all sides.</p>
+
+    <div class="example push--top">
+
+        <span class="block bg-brand--tint">
+
+            <div class="soft">
+                <p class="flush">Soft class</p>
+            </div>
+
+        </span>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="soft">
+    <p>Some content here</p>
+</div></script></code></pre>
+
+    <p>The size of the padding created by the ‘soft’ class can be changed by using alternative soft classes. Using ‘soft-half’ creates 15px padding on all sides of the element, while using ‘soft-2’, soft-3’ and ‘soft-4’ would add padding of 60px, 90px and 120px respectively.</p>
+
+    <div class="example push--top">
+
+        <div class="bg-brand--tint">
+
+            <div class="soft-half">
+
+                <p class="flush">soft-half class</p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-brand--tint push--top">
+
+            <div class="soft">
+
+                <p class="flush">soft class</p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-brand--tint push--top">
+
+            <div class="soft-2">
+
+                <p class="flush">soft-2 class</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p>Modifiers can be added to the soft classes to indicate specific sides that the padding are to be applied to. A class of ‘soft—left’ will add a padding of 30px to the left hand side of the element.</p>
+
+    <div class="example push--top">
+
+        <div class="bg-brand--tint">
+
+            <div class="soft--left">
+
+                <p class="flush">soft--left class</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="soft--left">          
+    <p>soft--left class</p>
+</div></script></code></pre>
+
+    <p>‘soft--top’, ‘soft--right’ and ‘soft--bottom’ all work in similar ways.</p>
+    <p>Special directional modifiers have also been included. ‘--ends’ refers to adding paddin on the top and bottom of the element only, while ‘--sides’ refers to having padding only on the left and right sides of the element.</p>
+    <p>Soft classes also have breakpoint modifier [link to breakpoint modifiers] classes available. Eg.</p>
+
+    <div class="example push--top">
+
+        <div class="bg-brand--tint">
+
+            <div class="soft-half soft--small soft-2--medium soft-3--large">
+
+               <p class="flush">Soft classes at various breakpoints</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="soft-half soft--small soft-2--medium soft-3--large">
+    <p>Soft classes at various breakpoints</p>
+</div>
+</script></code></pre>
+
+    <p>This creates a div which has 15px padding at smallest screen sizes, 30px above the first breakpoint, 60px above the second breakpoint, and 90px above the third breakpoint.</p>
+
+    <h4>Hard Class</h4>
+    <p>Padding is removed from an element by using the ‘hard’ class. When the class of ‘hard’ is added to an element, the padding on the element is set to 0px.</p>
+
+    <div class="example push--top">
+
+        <div class="bg-brand--tint">
+
+            <div class=”hard”>
+
+                <p class="flush">Hard class</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p>This creates an element with no padding.</p>
+    <p>Similar to the ‘soft’ class, the ‘hard’ class can also have directional modifiers, so a class of ‘hard—right’ can be used to remove padding only on the right side of the element.</p>
+    <p>The ‘hard’ class should override the ‘soft’ class at the various different breakpoints.</p>
+    <p>This means that an element can have padding at some breakpoints, but not at others, and can also have padding overridden at certain breakpoints. For example:</p>
+
+    <div class="example push--top">
+
+        <div class="bg-brand--tint">
+
+            <div class="soft hard—left—small soft-2—left—medium soft—large hard—right—large">
+
+                <p class="flush">Hard and soft classes at various breakpoints</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<pre><code class="line-numbers language-markup"><script type="prism-html-markup">
+<div class="soft hard—left—small soft-2—left—medium soft—large hard—right—large">
+    <p>Hard and soft classes at various breakpoints</p>
+</div>
+</script></code></pre>
+
+    <p>The above example is unlikely to be required, but showcases how padding can be added and removed at various break points.</p>
+
+    <h4>Breakpoint Modifiers</h4>
+
+    <p>All spacing classes have breakpoint modifiers so that the display of elements can be changed based on what breakpoint at which they are being displayed. </p>
+
+</div>
+
+        </div>

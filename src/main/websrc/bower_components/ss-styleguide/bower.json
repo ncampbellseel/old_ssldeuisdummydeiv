@@ -1,0 +1,54 @@
+{
+  "name": "ss-styleguide",
+  "version": "0.0.2",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Bryce Wilson"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "2.1.x",
+    "angular": "1.4.x",
+    "angular-route": "1.4.x",
+    "angular-animate": "1.4.x",
+    "angular-moment": "0.10.x",
+    "angular-translate": "2.7.x",
+    "angular-translate-loader-static-files": "2.7.x",
+    "font-awesome": "4.x.x",
+    "ang-accordion": "*",
+    "angularjs-datepicker": "0.2.x",
+    "angular-sanitize": "1.4.x",
+    "angular-local-storage": "0.2.x",
+    "angular-utf8-base64": "0.0.x",
+    "ngDialog": "0.4.x",
+    "animate.css": "3.4.x",
+    "angular-tooltips": "1.x.x",
+    "prism": "1.3.x",
+    "matchmedia-ng": "1.0.x",
+    "angular-selectize2": "3.0.x",
+    "selectize": "https://github.com/bwilson-ux/selectize.js.git#1434d13d74ac2e79849351c0945fb387ce76fd90",
+    "angular-ripple": "*",
+    "lodash": "4.3.x",
+    "angular-aria": "1.5.x",
+    "angular-momentjs": "0.2.x",
+    "moment": "2.11.x",
+    "ss-components-angular": "./custom_packages/ss-components-angular",
+    "ss-sass-core": "./custom_packages/ss-sass-core",
+    "oclazyload": "ocLazyLoad#^1.0.x"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "selectize": "1434d13d74ac2e79849351c0945fb387ce76fd90",
+    "angular": "1.4.x",
+    "moment": "2.11.x",
+    "sifter": "0.4.x"
+  }
+}
