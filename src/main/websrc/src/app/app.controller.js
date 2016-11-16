@@ -87,11 +87,6 @@
 
         $scope.dateStyle = 'MM/dd/yyyy';
 
-
-        $interval(function() {
-            $scope.updateWorktasks();
-        }, 180000);
-
         $scope.toTheTop = function() {
             window.scrollTo(0, 0);
         };

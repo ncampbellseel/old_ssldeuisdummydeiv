@@ -72,6 +72,20 @@ html {
     }
 }
 
+a,
+a h2 {
+    color: #0065bd !important;
+}
+
+a:hover,
+a:hover h2 {
+    color: #00437e !important;
+    -moz-transition: background-color .2s, color .2s;
+    -o-transition: background-color .2s, color .2s;
+    -webkit-transition: background-color .2s, color .2s;
+    transition: background-color .2s, color .2s;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -1490,4 +1504,44 @@ div.page-holder.ng-leave {
 
 @keyframes bounce {
     @include aniKeyframes();
+}
+
+.category-item--card {
+    background-color: $color-white;
+    box-shadow: 1px 1px 4px rgba(128, 128, 128, 0.3);
+    line-height: 21px;
+    border-bottom: 0px solid #0065bd;
+    position: relative;
+}
+
+.category-item__link {
+    height: 186px;
+    display: block;
+    padding: 20px 15px 30px;
+}
+
+.category-item--card .category-item__link:hover {
+    box-shadow: 1px 1px 4px rgba(128, 128, 128, 0.5);
+}
+
+.category-item--card .category-item__link:hover:after {
+    height: 5px;
+}
+
+.category-item--card .category-item__link:after {
+    background: #0065bd;
+    bottom: 0;
+    content: '';
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    -moz-transition: height .2s;
+    -o-transition: height .2s;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+}
+
+.category-item__summary {
+    color: #727272 !important;
 }
