@@ -76,7 +76,7 @@
                                 </goals>
                                 <configuration>
                                     <nodeVersion>v5.10.1</nodeVersion>
-                                    <npmVersion>4.0.2</npmVersion>
+                                    <npmVersion>3.10.5</npmVersion>
                                     <workingDirectory>src/main/websrc</workingDirectory>
                                     <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
                                 </configuration>
