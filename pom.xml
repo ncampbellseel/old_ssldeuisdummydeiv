@@ -117,6 +117,8 @@
                                 <configuration>
                                     <nodeVersion>v5.10.1</nodeVersion>
                                     <npmVersion>3.10.5</npmVersion>
+                                    <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
+                                    <npmDownloadRoot>https://registry.npmjs.org/npm/-/</npmDownloadRoot> 
                                     <workingDirectory>src/main/websrc</workingDirectory>
                                 </configuration>
                             </execution>
